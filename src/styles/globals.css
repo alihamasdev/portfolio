@@ -1,3 +1,38 @@
 @tailwind base;
-@tailwind components;
 @tailwind utilities;
+@tailwind components;
+
+@layer components {
+}
+
+:root {
+	--gradient: linear-gradient(to right, theme(colors.accent.purple), theme(colors.accent.pink));
+}
+
+.text-gradient {
+	color: transparent;
+	background-clip: text;
+	background-image: var(--gradient);
+}
+
+.hover-underline {
+	position: relative;
+	cursor: pointer;
+	transition: all 0.25s linear;
+	&::before {
+		content: "";
+		left: 0;
+		bottom: -3px;
+		width: 100%;
+		height: 3px;
+		position: absolute;
+		border-radius: 9999px;
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform 150ms;
+		background-image: var(--gradient);
+	}
+	&:hover::before {
+		transform: scaleX(1);
+	}
+}
