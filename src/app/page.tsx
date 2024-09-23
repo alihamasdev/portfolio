@@ -25,12 +25,12 @@ export default function Home() {
 				<h1 className="text-3xl font-bold leading-tight md:mt-2 md:text-5xl">
 					I'm <span className="text-gradient">Ali Hamas</span> - Frontend Developer
 				</h1>
-				<p className="mt-2 text-sm text-zinc-200 md:mt-3 md:w-[85%] md:text-base">
+				<p className="mt-2 text-sm text-zinc-300 md:mt-3 md:w-[85%] md:text-base">
 					A self-taught developer, who's currently pursuing a Full-Stack development to create
 					stunning user experiences on the front-end, scalable, and secure infrastructure on the
 					backend.
 				</p>
-				<div className="mt-3 flex items-center gap-3 text-zinc-200 md:gap-5">
+				<div className="mt-3 flex items-center gap-3 text-zinc-300 md:gap-5">
 					{socialLinks.map((item, index) => {
 						return (
 							<a
@@ -38,10 +38,12 @@ export default function Home() {
 								target="_blank"
 								href={item.link}
 								rel="noopener noreferrer"
-								className="hover-link flex flex-wrap items-center gap-1.5 *:transition-colors hover:text-zinc-50"
+								className="group-decoration flex flex-wrap items-center gap-1.5 *:transition-colors hover:text-zinc-50 md:hover:[--scale-x:1]"
 							>
 								{cloneElement(item.icon, { className: "h-[18px] md:h-5" })}
-								<span className="hover-underline text-sm md:text-base">{item.name}</span>
+								<span className="decoration-gradient text-sm font-medium md:text-base">
+									{item.name}
+								</span>
 							</a>
 						);
 					})}
