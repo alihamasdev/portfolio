@@ -1,9 +1,9 @@
-import "../styles/globals.css";
+import "@/styles/globals.css";
 import type { Metadata } from "next";
 import Header from "@/components/header";
-
-import { TooltipProvider } from "@/components/ui/tooltip";
+import NextTopLoader from "nextjs-toploader";
 import { AnimatePresence } from "framer-motion";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 export const metadata: Metadata = {
 	title: "Developer Portfolio | Ali Hamas",
@@ -18,6 +18,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className="bg-black text-zinc-50">
+				<NextTopLoader color="#f472b6" showSpinner={false} height={5} />
 				<AnimatePresence mode="wait">
 					<TooltipProvider>
 						<Header />
