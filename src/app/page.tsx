@@ -24,21 +24,18 @@ export default function Home() {
 	return (
 		<section className="flex min-h-dvh w-full flex-col items-center gap-y-10 py-28 md:flex-row">
 			<div className="flex w-full flex-col items-start justify-center md:w-[70%]">
-				<motion.p
-					className="text-base font-medium text-zinc-200 md:text-lg"
-					{...useTransition({ delay: 0 })}
-				>
+				<motion.p className="text-base font-medium text-zinc-200 md:text-lg" {...useTransition({})}>
 					Hello,
 				</motion.p>
 				<motion.h1
 					className="text-3xl font-bold leading-tight md:mt-2 md:text-5xl"
-					{...useTransition({ delay: 0.2 })}
+					{...useTransition({ delay: 0.1 })}
 				>
 					I'm <span className="text-gradient">Ali Hamas</span> - Frontend Developer
 				</motion.h1>
 				<motion.p
 					className="mt-2 text-sm text-zinc-300 md:mt-4 md:w-[85%] md:text-base"
-					{...useTransition({ delay: 0.4 })}
+					{...useTransition({ delay: 0.2 })}
 				>
 					A self-taught developer, who's currently pursuing a Full-Stack development to create
 					stunning user experiences on the front-end, scalable, and secure infrastructure on the
@@ -52,7 +49,7 @@ export default function Home() {
 								target="_blank"
 								href={item.link}
 								rel="noopener noreferrer"
-								{...useTransition({ delay: 0.6 + 0.2 * index })}
+								{...useTransition({ delay: 0.3 + 0.1 * index })}
 								className="group-decoration flex flex-wrap items-center gap-1.5 *:transition-colors hover:text-zinc-50 md:hover:[--scale-x:1]"
 							>
 								{cloneElement(item.icon, { className: "h-[18px] md:h-5" })}
