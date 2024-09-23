@@ -9,6 +9,10 @@
 	--gradient: linear-gradient(to right, theme(colors.accent.purple), theme(colors.accent.pink));
 }
 
+.hover-link:hover .hover-underline::before {
+	transform: scaleX(1);
+}
+
 .text-gradient {
 	color: transparent;
 	background-clip: text;
