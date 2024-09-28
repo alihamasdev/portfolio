@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import type { HTMLMotionProps, MotionProps } from "framer-motion";
 
-interface PropsTypes extends HTMLMotionProps<"div">, MotionProps {
+export interface TransitionPropsTypes extends HTMLMotionProps<"div">, MotionProps {
 	animation?: {
 		name: "fade";
 		x?: number | string;
@@ -15,7 +15,7 @@ interface PropsTypes extends HTMLMotionProps<"div">, MotionProps {
 	};
 }
 
-export default function Transition({ animation, children, ...props }: PropsTypes) {
+export default function Transition({ animation, children, ...props }: TransitionPropsTypes) {
 	const y = animation?.y || 70;
 	const x = animation?.x || 0;
 	const delay = animation?.delay || 0;
