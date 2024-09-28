@@ -1,8 +1,8 @@
 "use client";
-import { motion } from "framer-motion";
+import Transition from "@/lib/transitions";
 import { Input } from "@/components/ui/input";
 import { useState, type ChangeEvent } from "react";
-import { useTransition } from "@/hooks/transition";
+import Heading from "@/components/ui/page-heading";
 import ProjectCard from "@/components/project-card";
 import { projectsData, type ProjectsDataType } from "@/data/projects-data";
 
@@ -15,24 +15,19 @@ export default function Projects() {
 	};
 	return (
 		<section className="my-5 md:my-16">
-			<motion.h1
-				{...useTransition({})}
-				className="text w-fit text-3xl font-bold text-zinc-50 md:text-4xl"
-			>
-				Projects
-			</motion.h1>
-			<motion.div {...useTransition({ delay: 0.1 })} className="mt-5">
+			<Heading>Projects</Heading>
+			<Transition animation={{ name: "fade", delay: 0.2 }} className="mt-5">
 				<Input type="search" placeholder="Search projects..." onChange={handleSearch} />
-			</motion.div>
+			</Transition>
 			<div className="mt-6">
 				{filterProjects.length > 0 ? (
 					<div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 						<ProjectCard projects={filterProjects} />
 					</div>
 				) : (
-					<motion.div {...useTransition({})} className="mt-20 text-center text-xl font-medium">
-						No project found
-					</motion.div>
+					<Transition animation={{ name: "fade", delay: 0.2 }}>
+						<p className="mt-20 text-center text-xl font-medium">No project found</p>
+					</Transition>
 				)}
 			</div>
 		</section>

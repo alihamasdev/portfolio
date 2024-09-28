@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import ReadMore from "./ui/read-more";
 import TechStack from "./ui/tech-stack";
-import { useTransition } from "@/hooks/transition";
+import Transition from "@/lib/transitions";
 import { AnimatePresence, motion } from "framer-motion";
 import { type ProjectsDataType } from "@/data/projects-data";
 
@@ -12,10 +12,10 @@ export default function ProjectCard({ projects }: { projects: ProjectsDataType[]
 	let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 	return projects.map((item, index) => {
 		return (
-			<motion.article
+			<Transition
 				key={item.slug}
+				animation={{ name: "fade", delay: 0.3 + 0.1 * index }}
 				className="group relative rounded-xl border border-zinc-800"
-				{...useTransition({ delay: 0.3 + 0.1 * index })}
 			>
 				<Link
 					href={"/projects/" + item.slug}
@@ -53,7 +53,7 @@ export default function ProjectCard({ projects }: { projects: ProjectsDataType[]
 						</div>
 					</div>
 				</Link>
-			</motion.article>
+			</Transition>
 		);
 	});
 }
