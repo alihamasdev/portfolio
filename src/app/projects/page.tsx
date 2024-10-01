@@ -1,16 +1,17 @@
 "use client";
 import Transition from "@/lib/transitions";
+import projects from "@/data/projects.json";
 import { Input } from "@/components/ui/input";
+import { type ProjectType } from "@/data/types";
 import { useState, type ChangeEvent } from "react";
 import Heading from "@/components/ui/page-heading";
 import ProjectCard from "@/components/project-card";
-import { projectsData, type ProjectsDataType } from "@/data/projects-data";
 
-export default function Projects() {
-	const [filterProjects, setFilterProjects] = useState<ProjectsDataType[] | []>(projectsData);
+export default function ProjectsPage() {
+	const [filterProjects, setFilterProjects] = useState<ProjectType[] | []>(projects);
 	const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
 		const query = e.target.value.toLowerCase();
-		let queryProjects = projectsData.filter((item) => item.title.toLowerCase().includes(query));
+		let queryProjects = projects.filter((item) => item.title.toLowerCase().includes(query));
 		setFilterProjects(queryProjects);
 	};
 	return (
@@ -22,7 +23,7 @@ export default function Projects() {
 			<div className="mt-6">
 				{filterProjects.length > 0 ? (
 					<div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-						<ProjectCard projects={filterProjects} />
+						<ProjectCard data={projects} />
 					</div>
 				) : (
 					<Transition animation={{ name: "fade", delay: 0.2 }}>
