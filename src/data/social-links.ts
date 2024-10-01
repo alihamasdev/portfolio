@@ -10,13 +10,13 @@ export const socialLinks = [
 	},
 	{
 		name: "Github",
-		tooltip: "Checkout other projects on Github",
+		tooltip: "Checkout projects on Github",
 		link: "https://github.com/alihamasdev",
 		icon: faGithub
 	},
 	{
 		name: "LinkedIn",
-		tooltip: "Checkout my LinkedIn",
+		tooltip: "Find me on LinkedIn",
 		link: "https://linkedin.com/in/alihamasdev",
 		icon: faLinkedin
 	},
