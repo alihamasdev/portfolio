@@ -14,10 +14,10 @@ export default function Home() {
 		<section className="flex min-h-dvh w-full flex-col items-center gap-y-10 py-28 md:flex-row">
 			<div className="flex w-full flex-col items-start justify-center md:w-[70%]">
 				<Transition animation={{ name: "fade" }}>
-					<p className="text-base font-medium text-zinc-200 md:text-lg">Hello,</p>
+					<p className="text-base font-medium text-zinc-200 md:text-lg">👋 Hi,</p>
 				</Transition>
 				<Transition animation={{ name: "fade", delay: 0.1 }}>
-					<h1 className="text-3xl font-bold leading-tight md:mt-2 md:text-5xl">
+					<h1 className="text-3xl font-bold leading-tight md:mt-2 md:text-[42px]">
 						I'm <span className="text-gradient">Ali Hamas</span> - Frontend Developer
 					</h1>
 				</Transition>
