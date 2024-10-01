@@ -1,21 +1,30 @@
 import Transition from "@/lib/transitions";
 import Heading from "@/components/ui/page-heading";
 import ContactSection from "@/components/contact-section";
+import CommentForm from "@/components/comment-form";
 
 export default function Contact() {
 	return (
-		<div className="my-16 grid min-h-dvh grid-rows-2 gap-x-10 gap-y-8 md:grid-cols-2">
+		<div className="grid grid-rows-2 gap-x-10 gap-y-8 py-5 md:grid-cols-2 md:grid-rows-1 md:py-20">
 			<title>Contact - Developer Portfolio | Ali Hamas</title>
 			<section>
 				<Heading>Contact</Heading>
 				<Transition animation={{ name: "fade", delay: 0.1 }}>
-					<p className="mt-2 text-xs text-zinc-200 md:mt-4 md:text-[15px]">
+					<p className="mt-2 text-xs leading-5 text-zinc-200 md:mt-4 md:text-[15px]">
 						Do you want to work with me? Feel free to get in touch with me.
 					</p>
 				</Transition>
 				<ContactSection />
 			</section>
-			<section></section>
+			<section>
+				<Heading>Drop a line</Heading>
+				<Transition animation={{ name: "fade", delay: 0.1 }}>
+					<p className="mt-2 text-xs leading-5 text-zinc-200 md:mt-4 md:text-[15px]">
+						Leave a message below. It could be appreciation, suggestion, information or question.
+					</p>
+				</Transition>
+				<CommentForm />
+			</section>
 		</div>
 	);
 }
