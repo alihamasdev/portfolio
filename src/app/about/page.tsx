@@ -71,7 +71,7 @@ export default function About() {
 					</p>
 					<br />
 				</Transition>
-				<Transition animation={{ name: "fade", delay: 0.1, applyAt: "whileInView" }}>
+				<Transition animation={{ name: "fade", delay: 0.6 }}>
 					<AnchorHeading>Simple Projects in React</AnchorHeading>
 					<p>
 						I began creating simple projects, starting with a basic <Link href="/">To-Do App</Link>{" "}
@@ -92,7 +92,7 @@ export default function About() {
 					</p>
 					<br />
 				</Transition>
-				<Transition animation={{ name: "fade", delay: 0.1, applyAt: "whileInView" }}>
+				<Transition animation={{ name: "fade", delay: 0.7 }}>
 					<AnchorHeading>Freelancing & TypeScript</AnchorHeading>
 					<p>
 						At this point, I started freelancing to gain experience and earn some pocket money. It
@@ -104,7 +104,7 @@ export default function About() {
 					</p>
 					<br />
 				</Transition>
-				<Transition animation={{ name: "fade", delay: 0.1, applyAt: "whileInView" }}>
+				<Transition animation={{ name: "fade", delay: 0.8 }}>
 					<AnchorHeading>Exploring BaaS</AnchorHeading>
 					<p>
 						I've always dreamed of creating a functional Twitter clone. My first attempt was purely
@@ -116,22 +116,22 @@ export default function About() {
 					</p>
 					<br />
 				</Transition>
-				<Transition animation={{ name: "fade", delay: 0.1, applyAt: "whileInView" }}>
+				<Transition animation={{ name: "fade", delay: 0.9 }}>
 					<AnchorHeading>Full-Stack Projects</AnchorHeading>
 					<p>
 						Excited to showcase my skills to friends and family, I created{" "}
-						<Link href="">Chaty - Chat App</Link> with a single room using React, Tailwind, Framer
-						Motion, and Firebase. Next, I began working on my dream project, a fully functional{" "}
-						<Link href="">Twitter Clone</Link> with user authentication, liking, commenting,
-						following, and retweeting features. Users can even edit their profiles. This success
-						inspired me to revisit my lost <Link href="">Ecommerce App</Link> project and rebuild it
-						as a full-stack application, complete with a cart, user authentication, and an admin
-						dashboard for sellers. All of these projects were made possible through the power of
-						different BaaS solutions.
+						<Link href="">Chaty - Public Chat Room</Link> with a single room using React, Tailwind,
+						Framer Motion, and Firebase. Next, I began working on my dream project, a fully
+						functional <Link href="">Twitter Clone</Link> with user authentication, liking,
+						commenting, following, and retweeting features. Users can even edit their profiles. This
+						success inspired me to revisit my lost <Link href="">Ecommerce App</Link> project and
+						rebuild it as a full-stack application, complete with a cart, user authentication, and
+						an admin dashboard for sellers. All of these projects were made possible through the
+						power of different BaaS solutions.
 					</p>
 					<br />
 				</Transition>
-				<Transition animation={{ name: "fade", delay: 0.1, applyAt: "whileInView" }}>
+				<Transition animation={{ name: "fade", delay: 1 }}>
 					<AnchorHeading>Journey into Backend Development</AnchorHeading>
 					<p>
 						After completing these projects, I felt the urge to build everything from scratch,
@@ -141,7 +141,7 @@ export default function About() {
 					</p>
 					<br />
 				</Transition>
-				<Transition animation={{ name: "fade", delay: 0.1, applyAt: "whileInView" }}>
+				<Transition animation={{ name: "fade", delay: 1.1 }}>
 					<AnchorHeading>Conclusion</AnchorHeading>
 					<p>
 						Thanks for reading my story! I'm currently exploring backend development and excited to
