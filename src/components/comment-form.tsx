@@ -2,12 +2,22 @@ import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
 import Transition from "@/lib/transitions";
-import projects from "@/data/projects.json";
-import { type ProjectType } from "@/data/types";
-import { SelectContent, SelectTrigger } from "@/components/ui/select";
-import { Select, SelectItem, SelectValue } from "@/components/ui/select";
+import {
+	Select,
+	SelectItem,
+	SelectValue,
+	SelectContent,
+	SelectTrigger
+} from "@/components/ui/select";
 
-export default function CommentForm() {
+interface PropsTypes {
+	projects_titles: {
+		_id: string;
+		title: string;
+	}[];
+}
+
+export default function CommentForm({ projects_titles }: PropsTypes) {
 	return (
 		<form className="mt-5 flex flex-col gap-y-4">
 			<Transition animation={{ name: "fade", delay: 0.2 }}>
@@ -19,9 +29,9 @@ export default function CommentForm() {
 						<SelectValue placeholder="Select a project" />
 					</SelectTrigger>
 					<SelectContent>
-						{projects.map((item: ProjectType) => {
+						{projects_titles.map((item) => {
 							return (
-								<SelectItem key={item.slug} value={item.title}>
+								<SelectItem key={item._id} value={item.title}>
 									{item.title}
 								</SelectItem>
 							);

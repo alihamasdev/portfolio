@@ -3,7 +3,12 @@ import Heading from "@/components/ui/page-heading";
 import ContactSection from "@/components/contact-section";
 import CommentForm from "@/components/comment-form";
 
-export default function Contact() {
+export default async function Contact() {
+	const response = await fetch(process.env.DOMAIN + "/api/projects?title=''", {
+		cache: "force-cache"
+	});
+	const titles = await response.json();
+	console.log(titles);
 	return (
 		<div className="grid grid-rows-2 gap-x-10 gap-y-8 py-5 md:grid-cols-2 md:grid-rows-1 md:py-20">
 			<title>Contact - Developer Portfolio | Ali Hamas</title>
@@ -23,7 +28,7 @@ export default function Contact() {
 						Leave a message below. It could be appreciation, suggestion, information or question.
 					</p>
 				</Transition>
-				<CommentForm />
+				<CommentForm projects_titles={titles} />
 			</section>
 		</div>
 	);
