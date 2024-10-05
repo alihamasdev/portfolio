@@ -31,9 +31,8 @@ export default function Home() {
 				<div className="mt-3 flex items-center gap-3 text-zinc-300 md:mt-5 md:gap-5">
 					{socialLinks.map((item, index) => {
 						return (
-							<Transition animation={{ name: "fade", delay: 0.3 + 0.1 * index }}>
+							<Transition key={item.name} animation={{ name: "fade", delay: 0.3 + 0.1 * index }}>
 								<a
-									key={index}
 									target="_blank"
 									href={item.link}
 									rel="noopener noreferrer"
