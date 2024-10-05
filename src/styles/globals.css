@@ -3,6 +3,7 @@
 @tailwind components;
 
 @layer base {
+	@import "./mdx.css";
 	:root {
 		--scale-x: 0;
 		--gradient: linear-gradient(to right, theme(colors.purple.600), theme(colors.accent.pink));
@@ -19,6 +20,9 @@
 			#131314 75%,
 			#131314 100%
 		);
+	}
+	html {
+		@apply scroll-smooth;
 	}
 }
 
