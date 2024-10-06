@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
+import Icon from "react-inlinesvg";
 import Transition from "@/lib/transitions";
+import { AnimatePresence } from "framer-motion";
 import { socialLinks } from "@/data/social-links";
-import { AnimatePresence, motion } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function ContactSection() {
 	let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -31,7 +31,7 @@ export default function ContactSection() {
 							</AnimatePresence>
 							<div className="relative z-[1] flex items-center gap-x-3 px-3 py-2 md:gap-x-5 md:px-4 md:py-3">
 								<div className="flex size-10 items-center justify-center rounded-full bg-zinc-800 text-zinc-50 md:size-[52px]">
-									<FontAwesomeIcon icon={item.icon} className="size-4 md:size-5" />
+									<Icon src={item.icon} className="size-4 fill-zinc-50 md:size-5" />
 								</div>
 								<div className="flex flex-col items-start">
 									<h3 className="text-sm font-semibold text-zinc-100 md:text-base">{item.name}</h3>

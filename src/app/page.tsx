@@ -1,15 +1,14 @@
+import SVG from "react-inlinesvg";
 import Transition from "@/lib/transitions";
 import IconCloud from "@/components/ui/icon-cloud";
-import { faFileLines } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+
+const socialLinks = [
+	{ name: "Resume", src: "/icons/file.svg", link: "/resume.pdf" },
+	{ name: "Github", src: "/icons/linkedin.svg", link: "https://github.com/alihamasdev" },
+	{ name: "LinkedIn", src: "/icons/github.svg", link: "https:/linkedin.com/in/alihamasdev" }
+];
 
 export default function Home() {
-	const socialLinks = [
-		{ name: "Resume", icon: faFileLines, link: "/resume.pdf" },
-		{ name: "Github", icon: faGithub, link: "https://github.com/alihamasdev" },
-		{ name: "LinkedIn", icon: faLinkedin, link: "https:/linkedin.com/in/alihamasdev" }
-	];
 	return (
 		<section className="flex min-h-dvh w-full flex-col items-center gap-y-10 py-28 md:flex-row">
 			<div className="flex w-full flex-col items-start justify-center md:w-[70%]">
@@ -36,9 +35,9 @@ export default function Home() {
 									target="_blank"
 									href={item.link}
 									rel="noopener noreferrer"
-									className="group-decoration flex flex-wrap items-center gap-1.5 *:transition-colors hover:text-zinc-50 md:hover:[--scale-x:1]"
+									className="group-decoration flex flex-wrap items-center gap-1.5 *:transition-colors hover:text-zinc-50 hover:[--scale-x:1] [&>svg]:hover:fill-zinc-50"
 								>
-									<FontAwesomeIcon icon={item.icon} className="h-[18px] md:h-5" />
+									<SVG src={item.src} className="size-[18px] fill-zinc-300" />
 									<span className="decoration-gradient text-sm font-medium md:text-[15px]">
 										{item.name}
 									</span>

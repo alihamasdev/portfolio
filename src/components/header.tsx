@@ -2,13 +2,13 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { useState } from "react";
+import Icon from "react-inlinesvg";
 import { Button } from "./ui/button";
 import Transition from "@/lib/transitions";
 import { usePathname } from "next/navigation";
 import { socialLinks } from "@/data/social-links";
 import { AnimatePresence, motion } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { HamburgerMenuIcon, Cross2Icon } from "@radix-ui/react-icons";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 export default function Header() {
@@ -34,9 +34,9 @@ export default function Header() {
 					onClick={() => setIsHeader((prevState) => !prevState)}
 				>
 					{isHeader ? (
-						<FontAwesomeIcon icon={faXmark} className="size-[17px]" />
+						<Cross2Icon className="size-[17px]" />
 					) : (
-						<FontAwesomeIcon icon={faBars} className="size-[15px]" />
+						<HamburgerMenuIcon className="size-[15px]" />
 					)}
 				</Button>
 			</Transition>
@@ -82,9 +82,9 @@ export default function Header() {
 												<Tooltip>
 													<TooltipTrigger>
 														<a target="_blank" href={item.link} rel="noopener noreferrer">
-															<FontAwesomeIcon
-																icon={item.icon}
-																className="size-5 transition-colors"
+															<Icon
+																src={item.icon}
+																className="size-5 fill-zinc-400 transition-colors hover:fill-zinc-50"
 															/>
 														</a>
 													</TooltipTrigger>
