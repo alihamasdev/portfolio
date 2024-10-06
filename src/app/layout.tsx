@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import Header from "@/components/header";
+import { Toaster } from "react-hot-toast";
 import NextTopLoader from "nextjs-toploader";
 import { AnimatePresence } from "framer-motion";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -23,6 +24,7 @@ export default function RootLayout({
 					<TooltipProvider>
 						<Header />
 						<main className="mx-auto w-[90%] max-w-6xl">{children}</main>
+						<Toaster position="bottom-right" toastOptions={{ className: "text-sm font-medium" }} />
 					</TooltipProvider>
 				</AnimatePresence>
 			</body>
