@@ -6,12 +6,19 @@ const commentSchema: Schema<commentType> = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	comment: {
+	image: {
 		type: String,
 		required: true
 	},
+	username: {
+		type: String
+	},
 	project: {
 		type: String
+	},
+	comment: {
+		type: String,
+		required: true
 	}
 });
 

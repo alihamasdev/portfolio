@@ -14,6 +14,8 @@ export interface ProjectType extends Document {
 
 export interface commentType extends Document {
 	name: string;
+	username?: string;
 	comment: string;
-	project: string;
+	project?: string;
+	image: string;
 }
