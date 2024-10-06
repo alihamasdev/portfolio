@@ -9,7 +9,8 @@ export default async function ProjectsPage() {
 	});
 	const projects: ProjectType[] = await response.json();
 	return (
-		<section className="my-5 md:my-16">
+		<section className="py-5 md:py-20">
+			<title>Projects - Developer Portfolio | Ali Hamas</title>
 			<Heading>Projects</Heading>
 			<Transition animation={{ name: "fade", delay: 0.2 }}>
 				<p className="mt-2 text-xs leading-5 text-zinc-200 md:mt-4 md:text-base">
