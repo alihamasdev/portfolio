@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export default function Anchor({ href, children }: React.ComponentProps<"a">) {
-	let isExternalLink = href?.startsWith("https://") || href?.startsWith("http://");
+	const isExternalLink = href?.startsWith("https://") || href?.startsWith("http://");
 	return isExternalLink ? (
 		<a
 			href={href}

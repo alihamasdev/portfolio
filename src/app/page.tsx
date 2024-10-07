@@ -20,14 +20,14 @@ export default function Home() {
 					</Transition>
 					<Transition animation={{ name: "fade", delay: 0.1 }}>
 						<h1 className="text-3xl font-bold leading-tight md:mt-2 md:text-[42px]">
-							I'm <span className="text-gradient">Ali Hamas</span> - Frontend Developer
+							I&apos;m <span className="text-gradient">Ali Hamas</span> - Frontend Developer
 						</h1>
 					</Transition>
 					<Transition animation={{ name: "fade", delay: 0.2 }}>
 						<p className="mt-2 text-sm text-zinc-300 md:mt-4 md:w-[85%] md:text-base">
-							A self-taught developer, who's currently pursuing a Full-Stack development to create
-							stunning user experiences on the front-end, scalable, and secure infrastructure on the
-							backend.
+							A self-taught developer, who&apos;s currently pursuing a Full-Stack development to
+							create stunning user experiences on the front-end, scalable, and secure infrastructure
+							on the backend.
 						</p>
 					</Transition>
 					<div className="mt-3 flex items-center gap-3 text-zinc-300 md:mt-5 md:gap-5">

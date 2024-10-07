@@ -38,18 +38,18 @@ export default function CommentForm({ data }: PropsTypes) {
 				if (!name && !username) throw new Error("Please provide either a name or username");
 				if (!comment) throw new Error("Please enter a comment message");
 				if (username) {
-					let gitReq = await fetch("https://api.github.com/users/" + username);
+					const gitReq = await fetch("https://api.github.com/users/" + username);
 					if (!gitReq.ok) {
 						throw new Error("Please enter a valid github username");
 					} else {
-						let gitData = await gitReq.json();
+						const gitData = await gitReq.json();
 						name = gitData.name;
 						image = gitData.avatar_url;
 					}
 				}
 
 				const body = JSON.stringify({ name, username, image, comment, project });
-				let res = await fetch("/api/comments", { method: "POST", body });
+				const res = await fetch("/api/comments", { method: "POST", body });
 				if (res.ok) {
 					toast.success(`Thanks for your comment ${name}`);
 					formRef.current?.reset();

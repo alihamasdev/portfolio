@@ -13,7 +13,7 @@ interface PropsTypes {
 }
 
 export default function ProjectCard({ data }: PropsTypes) {
-	let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+	const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 	return data.map((project, index) => {
 		return (
 			<Transition

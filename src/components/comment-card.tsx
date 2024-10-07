@@ -22,7 +22,7 @@ const dateFormat = (input: Date | number): string => {
 };
 
 export default function CommentCard({ comments, badge = true }: PropTypes) {
-	let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+	const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 	return comments.map((item, index) => {
 		return (
 			<Transition

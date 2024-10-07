@@ -81,7 +81,7 @@ export default function IconCloud() {
 
 	useEffect(() => {
 		fetchSimpleIcons({ slugs: skills }).then(setData);
-	}, [skills]);
+	}, []);
 
 	const renderedIcons = useMemo(() => {
 		if (!data) return null;
@@ -90,7 +90,7 @@ export default function IconCloud() {
 	}, [data]);
 
 	return (
-		// @ts-ignore
+		// @ts-expect-error
 		<Cloud {...cloudProps}>
 			<>{renderedIcons}</>
 		</Cloud>

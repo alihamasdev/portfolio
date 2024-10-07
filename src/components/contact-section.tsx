@@ -6,7 +6,7 @@ import { AnimatePresence } from "framer-motion";
 import { socialLinks } from "@/data/social-links";
 
 export default function ContactSection() {
-	let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+	const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 	return (
 		<div className="mt-5 grid gap-y-4 rounded-lg">
 			{socialLinks.map((item, index) => {

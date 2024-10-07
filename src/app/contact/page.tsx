@@ -12,7 +12,6 @@ export default async function Contact() {
 	const data = projects.map((item) => {
 		return { title: item.title, slug: item.slug };
 	});
-	console.log(data);
 	return (
 		<Fragment>
 			<title>Contact - Developer Portfolio | Ali Hamas</title>
