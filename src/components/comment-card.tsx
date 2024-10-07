@@ -13,6 +13,14 @@ interface PropTypes {
 	comments: commentType[];
 }
 
+const dateFormat = (input: Date | number): string => {
+	const date = new Date(input);
+	const year = date.getFullYear();
+	const day = date.getDate();
+	const month = new Intl.DateTimeFormat("en-gb", { month: "short" }).format(date);
+	return `${month} ${day}, ${year}`;
+};
+
 export default function CommentCard({ comments, badge = true }: PropTypes) {
 	let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 	return comments.map((item, index) => {
@@ -74,7 +82,7 @@ export default function CommentCard({ comments, badge = true }: PropTypes) {
 								<p className="line-clamp-1 text-base font-bold text-zinc-100">{item.name}</p>
 							)}
 							<span className="line-clamp-1 text-sm font-medium leading-6 text-zinc-400">
-								Oct 7, 2024
+								{dateFormat(item.createdAt)}
 							</span>
 							{badge && item.project && (
 								<Link

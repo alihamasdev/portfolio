@@ -18,4 +18,6 @@ export interface commentType extends Document {
 	comment: string;
 	project?: string;
 	image: string;
+	updatedAt: Date;
+	createdAt: Date;
 }
