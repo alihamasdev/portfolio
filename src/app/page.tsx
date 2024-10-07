@@ -6,8 +6,8 @@ import NavigationButtons from "@/components/navigation-buttons";
 
 const socialLinks = [
 	{ name: "Resume", src: "/icons/file.svg", link: "/resume.pdf" },
-	{ name: "Github", src: "/icons/linkedin.svg", link: "https://github.com/alihamasdev" },
-	{ name: "LinkedIn", src: "/icons/github.svg", link: "https:/linkedin.com/in/alihamasdev" }
+	{ name: "Github", src: "/icons/github.svg", link: "https://github.com/alihamasdev" },
+	{ name: "LinkedIn", src: "/icons/linkedin.svg", link: "https:/linkedin.com/in/alihamasdev" }
 ];
 
 export default function Home() {
