@@ -3,7 +3,19 @@ import rehypeSlug from "rehype-slug";
 import rehypePrettyCode from "rehype-pretty-code";
 
 const nextConfig = {
-	pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"]
+	pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+	images: {
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "avatars.githubusercontent.com"
+			},
+			{
+				protocol: "https",
+				hostname: "cloud.appwrite.io"
+			}
+		]
+	}
 };
 
 const withMDX = createMDX({
