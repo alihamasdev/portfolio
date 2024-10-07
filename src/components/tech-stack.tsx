@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import Icon from "react-inlinesvg";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 export default function TechStack({ tech, className }: { tech: string[]; className?: string }) {
@@ -8,11 +9,7 @@ export default function TechStack({ tech, className }: { tech: string[]; classNa
 				return (
 					<Tooltip key={item}>
 						<TooltipTrigger>
-							<img
-								src={`https://skillicons.dev/icons?i=${item}`}
-								className="size-[17px] md:size-6"
-								alt={item}
-							/>
+							<Icon src={`/icons/skills/${item}.svg`} className="size-[17px] md:size-6" />
 						</TooltipTrigger>
 						<TooltipContent className="capitalize">{item}</TooltipContent>
 					</Tooltip>

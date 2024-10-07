@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import TechStack from "./ui/tech-stack";
+import TechStack from "./tech-stack";
 import Transition from "@/lib/transitions";
 import { AnimatePresence } from "framer-motion";
 import { type ProjectType } from "@/models/types";
