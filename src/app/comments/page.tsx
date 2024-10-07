@@ -16,7 +16,7 @@ export default async function Comments() {
 					<CommentCard comments={comments} />
 				</div>
 			</section>
-			<NavigationButtons delay={0.6} />
+			<NavigationButtons delay={comments.length * 0.1 + 0.1} />
 		</Fragment>
 	);
 }
