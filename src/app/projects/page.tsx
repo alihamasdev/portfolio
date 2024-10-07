@@ -6,7 +6,7 @@ import ProjectCard from "@/components/project-card";
 import NavigationButtons from "@/components/navigation-buttons";
 
 export default async function ProjectsPage() {
-	const request = await fetch(process.env.DOMAIN! + "/api/projects");
+	const request = await fetch(process.env.DOMAIN! + "/api/projects", { cache: "force-cache" });
 	const projects: ProjectType[] = await request.json();
 	return (
 		<Fragment>
