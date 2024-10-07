@@ -1,15 +1,18 @@
 import { Fragment } from "react";
 import Transition from "@/lib/transitions";
+import { type ProjectType } from "@/models/types";
 import Heading from "@/components/ui/page-heading";
 import CommentForm from "@/components/comment-form";
 import ContactSection from "@/components/contact-section";
 import NavigationButtons from "@/components/navigation-buttons";
 
 export default async function Contact() {
-	const response = await fetch(process.env.DOMAIN + "/api/projects?title=''", {
-		cache: "force-cache"
+	const response = await fetch(process.env.DOMAIN + "/api/projects", { cache: "force-cache" });
+	const projects: ProjectType[] = await response.json();
+	const data = projects.map((item) => {
+		return { title: item.title, slug: item.slug };
 	});
-	const titles = await response.json();
+	console.log(data);
 	return (
 		<Fragment>
 			<title>Contact - Developer Portfolio | Ali Hamas</title>
@@ -30,7 +33,7 @@ export default async function Contact() {
 							Leave a comment below. It could be appreciation, suggestion or question.
 						</p>
 					</Transition>
-					<CommentForm projects_titles={titles} />
+					<CommentForm data={data} />
 				</section>
 			</div>
 			<NavigationButtons delay={0.7} />

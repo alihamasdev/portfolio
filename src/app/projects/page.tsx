@@ -6,10 +6,8 @@ import ProjectCard from "@/components/project-card";
 import NavigationButtons from "@/components/navigation-buttons";
 
 export default async function ProjectsPage() {
-	const response = await fetch(process.env.DOMAIN + "/api/projects", {
-		cache: "force-cache"
-	});
-	const projects: ProjectType[] = await response.json();
+	const request = await fetch(process.env.DOMAIN! + "/api/projects");
+	const projects: ProjectType[] = await request.json();
 	return (
 		<Fragment>
 			<section className="pt-5 md:pt-20">
@@ -20,10 +18,8 @@ export default async function ProjectsPage() {
 						Showcase of my work on web development
 					</p>
 				</Transition>
-				<div className="mt-6">
-					<div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-						<ProjectCard data={projects} />
-					</div>
+				<div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+					<ProjectCard data={projects} />
 				</div>
 			</section>
 			<NavigationButtons delay={projects.length * 0.1 + 0.2} />
