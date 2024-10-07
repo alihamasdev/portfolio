@@ -18,7 +18,7 @@ export default function ProjectCard({ data }: PropsTypes) {
 		return (
 			<Transition
 				key={project.slug}
-				animation={{ name: "fade", delay: 0.3 + 0.1 * index }}
+				animation={{ name: "fade", delay: 0.2 + 0.1 * index }}
 				className="group relative rounded-xl border border-zinc-800"
 			>
 				<Link
