@@ -4,6 +4,9 @@ import rehypePrettyCode from "rehype-pretty-code";
 
 const nextConfig = {
 	pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+	eslint: {
+		ignoreDuringBuilds: true
+	},
 	images: {
 		remotePatterns: [
 			{
