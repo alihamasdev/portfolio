@@ -3,6 +3,7 @@ import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import LinkFormatter from "@/lib/linkify";
 import Transition from "@/lib/transitions";
 import { AnimatePresence } from "framer-motion";
 import { type commentType } from "@/models/types";
@@ -74,12 +75,14 @@ export default function CommentCard({ comments, badge = true }: PropTypes) {
 									target="_blank"
 									rel="noopener noreferrer"
 									href={"https://github.com/" + item.username}
-									className="decoration-gradient line-clamp-1 text-base font-bold text-zinc-100"
+									className="line-clamp-1 text-base font-bold capitalize text-zinc-100 hover:underline"
 								>
 									{item.name}
 								</a>
 							) : (
-								<p className="line-clamp-1 text-base font-bold text-zinc-100">{item.name}</p>
+								<p className="line-clamp-1 text-base font-bold capitalize text-zinc-100">
+									{item.name}
+								</p>
 							)}
 							<span className="line-clamp-1 text-sm font-medium leading-6 text-zinc-400">
 								{dateFormat(item.createdAt)}
@@ -96,7 +99,9 @@ export default function CommentCard({ comments, badge = true }: PropTypes) {
 								</Link>
 							)}
 						</div>
-						<p className="mt-1 text-sm text-zinc-300">{item.comment}</p>
+						<p className="mt-1 text-sm text-zinc-300">
+							<LinkFormatter>{item.comment}</LinkFormatter>
+						</p>
 					</div>
 				</div>
 			</Transition>
