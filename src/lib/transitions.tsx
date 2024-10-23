@@ -1,6 +1,6 @@
 "use client";
-import { cn } from "./utils";
 import { motion } from "framer-motion";
+import { twMerge } from "tailwind-merge";
 import type { HTMLMotionProps, MotionProps } from "framer-motion";
 
 export interface TransitionPropsTypes extends HTMLMotionProps<"div">, MotionProps {
@@ -43,7 +43,7 @@ export default function Transition({
 		initial = { opacity: 0 };
 		animate = { opacity: 1, transition: { duration: 0.15 } };
 		exit = { opacity: 0, transition: { duration: 0.15, delay: 0.2 } };
-		className = cn("absolute inset-0 z-0 size-full bg-zinc-900", className);
+		className = twMerge("absolute inset-0 z-0 size-full bg-zinc-900", className);
 	}
 
 	return (

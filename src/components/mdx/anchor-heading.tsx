@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "@/lib/utils";
+import { twMerge } from "tailwind-merge";
 import { useRouter } from "next/navigation";
 import { FrameIcon } from "@radix-ui/react-icons";
 
@@ -19,7 +19,7 @@ export default function AnchorHeading({
 	return (
 		<HeadingTag
 			id={id} // add id from rehype-slug plugin for mdx components
-			className={cn(
+			className={twMerge(
 				"group relative my-5 w-fit scroll-m-5 font-bold text-zinc-100", // font-size styling is in `mdx.css`
 				className
 			)}
