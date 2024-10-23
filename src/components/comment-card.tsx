@@ -1,8 +1,8 @@
 "use client";
-import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { twMerge } from "tailwind-merge";
 import LinkFormatter from "@/lib/linkify";
 import Transition from "@/lib/transitions";
 import { AnimatePresence } from "framer-motion";
@@ -90,7 +90,7 @@ export default function CommentCard({ comments, badge = true }: PropTypes) {
 							{badge && item.project && (
 								<Link
 									href={`/projects/${item.project}`}
-									className={clsx(
+									className={twMerge(
 										badgeVariants({ variant: "secondary" }),
 										"w-fit whitespace-nowrap"
 									)}
