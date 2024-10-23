@@ -1,9 +1,9 @@
 "use client";
-import clsx from "clsx";
 import Link from "next/link";
 import { useState } from "react";
 import Icon from "react-inlinesvg";
 import { Button } from "./ui/button";
+import { twMerge } from "tailwind-merge";
 import Transition from "@/lib/transitions";
 import { usePathname } from "next/navigation";
 import { socialLinks } from "@/data/social-links";
@@ -57,7 +57,7 @@ export default function Header() {
 											key={item.name}
 											onClick={() => setIsHeader((prevState) => !prevState)}
 											animation={{ name: "fade", delay: 0.3 + 0.1 * index, exitDelay: 0.1 }}
-											className={clsx(
+											className={twMerge(
 												"decoration-gradient",
 												path === item.link && "text-gradient font-semibold",
 												item.link === "/projects" &&
