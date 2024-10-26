@@ -1,73 +1,55 @@
 "use client";
-import { Input } from "./ui/input";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
+import { useRef, useTransition } from "react";
+
+import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
 import Transition from "@/lib/transitions";
-import { useRouter } from "next/navigation";
-import { useRef, useTransition } from "react";
-import {
-	Select,
-	SelectItem,
-	SelectValue,
-	SelectContent,
-	SelectTrigger
-} from "@/components/ui/select";
+import projects from "@/data/projects.json";
+import { action } from "@/app/contact/action";
+import { Select, SelectItem } from "@/components/ui/select";
+import { SelectValue, SelectContent, SelectTrigger } from "@/components/ui/select";
 
-interface PropsTypes {
-	data: {
-		title: string;
-		slug: string;
-	}[];
-}
-
-export default function CommentForm({ data }: PropsTypes) {
+export default function CommentForm() {
 	const router = useRouter();
-	const formRef = useRef<HTMLFormElement>(null);
 	const [pending, startTransition] = useTransition();
 
-	const handleSubmit = async (data: FormData) => {
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		const form = new FormData(e.currentTarget);
+		const data = Object.fromEntries(form);
+		let { name, comment, username, project } = data;
+		if (!name && !username) {
+			toast.error("Please provide either a name or username");
+			return;
+		}
+		if (!comment) {
+			toast.error("Please enter a comment message");
+			return;
+		}
 		startTransition(async () => {
 			try {
-				let name = data.get("name");
-				const comment = data.get("comment");
-				const project = data.get("project");
-				const username = data.get("username");
-				let image = `https://cloud.appwrite.io/v1/avatars/initials?width=50&height=50&name=${name}`;
-
-				if (!name && !username) throw new Error("Please provide either a name or username");
-				if (!comment) throw new Error("Please enter a comment message");
-				if (username) {
-					const gitReq = await fetch("https://api.github.com/users/" + username);
-					if (!gitReq.ok) {
-						throw new Error("Please enter a valid github username");
-					} else {
-						const gitData = await gitReq.json();
-						name = gitData.name;
-						image = gitData.avatar_url;
-					}
+				const result = await action({ name, username, project, comment });
+				if (result.error) {
+					toast.error(result.message);
+					return;
 				}
 
-				const body = JSON.stringify({ name, username, image, comment, project });
-				const res = await fetch("/api/comments", { method: "POST", body });
-				if (res.ok) {
-					toast.success(`Thanks for your comment ${name}`);
-					formRef.current?.reset();
-					setTimeout(() => {
-						router.push("/comments");
-					}, 1000);
-				} else {
-					toast.error("Something went wrong, try reloading");
-				}
-			} catch (error: any) {
+				toast.success(result.message);
+				setTimeout(() => {
+					router.push("/comments");
+				}, 1000);
+			} catch (error) {
 				console.error(error);
-				toast.error(error.message);
+				toast.error("Something went wrong, try reloading");
 			}
 		});
 	};
 
 	return (
-		<form className="mt-5 flex flex-col gap-y-4" ref={formRef} action={handleSubmit}>
+		<form className="mt-5 flex flex-col gap-y-4" onSubmit={handleSubmit}>
 			<Transition animation={{ name: "fade", delay: 0.2 }}>
 				<Input name="name" placeholder="Name" />
 			</Transition>
@@ -80,13 +62,11 @@ export default function CommentForm({ data }: PropsTypes) {
 						<SelectValue placeholder="Select a project" />
 					</SelectTrigger>
 					<SelectContent>
-						{data.map((item) => {
-							return (
-								<SelectItem key={item.slug} value={item.slug}>
-									{item.title}
-								</SelectItem>
-							);
-						})}
+						{projects.map((item) => (
+							<SelectItem key={item.slug} value={item.slug}>
+								{item.title}
+							</SelectItem>
+						))}
 					</SelectContent>
 				</Select>
 			</Transition>
