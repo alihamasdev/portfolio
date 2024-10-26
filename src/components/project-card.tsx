@@ -5,7 +5,7 @@ import { useState } from "react";
 import TechStack from "./tech-stack";
 import Transition from "@/lib/transitions";
 import { AnimatePresence } from "framer-motion";
-import { type ProjectType } from "@/models/types";
+import { type ProjectType } from "@/data/types";
 import { ChevronRightIcon } from "@radix-ui/react-icons";
 
 interface PropsTypes {

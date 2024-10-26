@@ -1,13 +1,11 @@
 import { Fragment } from "react";
 import Transition from "@/lib/transitions";
-import { type ProjectType } from "@/models/types";
+import projects from "@/data/projects.json";
 import Heading from "@/components/ui/page-heading";
 import ProjectCard from "@/components/project-card";
 import NavigationButtons from "@/components/navigation-buttons";
 
 export default async function ProjectsPage() {
-	const request = await fetch(process.env.DOMAIN! + "/api/projects", { cache: "force-cache" });
-	const projects: ProjectType[] = await request.json();
 	return (
 		<Fragment>
 			<section className="pt-5 md:pt-20">
