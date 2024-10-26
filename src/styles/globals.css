@@ -36,6 +36,9 @@
 	.main-heading {
 		@apply text-gradient w-fit text-3xl font-bold md:text-5xl;
 	}
+	.spinner {
+		@apply size-7 animate-spin rounded-full border-4 border-zinc-600 border-t-zinc-50;
+	}
 }
 
 ::-webkit-search-cancel-button {

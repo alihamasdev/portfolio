@@ -12,12 +12,12 @@ export interface ProjectType extends Document {
 	views: number;
 }
 
-export interface commentType extends Document {
+export interface commentType {
 	name: string;
 	username?: string;
 	comment: string;
 	project?: string;
 	image: string;
-	updatedAt: Date;
+	updatedAt?: Date;
 	createdAt: Date;
 }

@@ -4,15 +4,6 @@ import { type NextRequest, NextResponse } from "next/server";
 
 dbConnect();
 
-export async function GET() {
-	try {
-		const allProjects = await commentModel.find();
-		return NextResponse.json(allProjects);
-	} catch (error) {
-		return NextResponse.json(error, { status: 404 });
-	}
-}
-
 export async function POST(req: NextRequest) {
 	const body = await req.json();
 
