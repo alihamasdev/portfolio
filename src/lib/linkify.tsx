@@ -1,4 +1,5 @@
 import Linkify from "linkify-react";
+import { twMerge } from "tailwind-merge";
 
 interface PropTypes {
 	children: React.ReactNode;
@@ -13,16 +14,15 @@ export default function LinkFormatter({ children, className }: PropTypes) {
 				href={href}
 				target="_blank"
 				rel="noopener noreferrer"
-				className="text-accent-pink underline-offset-2 [-webkit-box-decoration-break:clone] hover:underline"
+				className={twMerge(
+					"text-accent-pink underline-offset-2 [-webkit-box-decoration-break:clone] hover:underline",
+					className
+				)}
 				{...props}
 			>
 				{content}
 			</a>
 		);
 	};
-	return (
-		<Linkify options={{ render: renderLink }} className={className}>
-			{children}
-		</Linkify>
-	);
+	return <Linkify options={{ render: renderLink }}>{children}</Linkify>;
 }
