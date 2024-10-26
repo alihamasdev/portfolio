@@ -8,7 +8,7 @@ import { socialLinks } from "@/data/social-links";
 export default function ContactSection() {
 	const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 	return (
-		<div className="mt-5 grid gap-y-4 rounded-lg">
+		<div className="mt-5 grid gap-y-4 rounded-lg md:pr-20">
 			{socialLinks.map((item, index) => {
 				return (
 					<Transition key={item.name} animation={{ name: "fade", delay: 0.1 + 0.1 * index }}>
