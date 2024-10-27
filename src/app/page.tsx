@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import SVG from "react-inlinesvg";
 import Transition from "@/lib/transitions";
 import IconCloud from "@/components/ui/icon-cloud";
-import NavigationButtons from "@/components/navigation-buttons";
+import NavigationButtons from "@/components/ui/navigation-buttons";
 
 const socialLinks = [
 	{ name: "Resume", src: "/icons/file.svg", link: "/resume.pdf" },

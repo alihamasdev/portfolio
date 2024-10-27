@@ -3,7 +3,7 @@ import Transition from "@/lib/transitions";
 import Heading from "@/components/ui/page-heading";
 import CommentForm from "@/components/comment-form";
 import ContactSection from "@/components/contact-section";
-import NavigationButtons from "@/components/navigation-buttons";
+import NavigationButtons from "@/components/ui/navigation-buttons";
 
 export default async function Contact() {
 	return (

@@ -3,7 +3,7 @@ import Transition from "@/lib/transitions";
 import projects from "@/data/projects.json";
 import Heading from "@/components/ui/page-heading";
 import ProjectCard from "@/components/project-card";
-import NavigationButtons from "@/components/navigation-buttons";
+import NavigationButtons from "@/components/ui/navigation-buttons";
 
 export default async function ProjectsPage() {
 	return (

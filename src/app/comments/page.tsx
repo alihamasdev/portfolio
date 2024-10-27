@@ -3,7 +3,7 @@ import dbConnect from "@/database/connect";
 import commentModel from "@/models/commentModel";
 import { type commentType } from "@/models/types";
 import CommentCard from "@/components/comment-card";
-import NavigationButtons from "@/components/navigation-buttons";
+import NavigationButtons from "@/components/ui/navigation-buttons";
 
 export default async function Comments() {
 	await dbConnect();
