@@ -1,7 +1,7 @@
 "use client";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { useRef, useTransition } from "react";
+import { useTransition } from "react";
 
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
@@ -20,7 +20,7 @@ export default function CommentForm() {
 		e.preventDefault();
 		const form = new FormData(e.currentTarget);
 		const data = Object.fromEntries(form);
-		let { name, comment, username, project } = data;
+		const { name, comment, username, project } = data;
 		if (!name && !username) {
 			toast.error("Please provide either a name or username");
 			return;

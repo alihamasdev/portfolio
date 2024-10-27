@@ -45,7 +45,7 @@ export const renderCustomIcon = (icon: SimpleIcon) => {
 			href: undefined,
 			target: undefined,
 			rel: undefined,
-			onClick: (e: any) => e.preventDefault()
+			onClick: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => e.preventDefault()
 		}
 	});
 };
@@ -89,10 +89,6 @@ export default function IconCloud() {
 		return Object.values(data.simpleIcons).map((icon) => renderCustomIcon(icon));
 	}, [data]);
 
-	return (
-		// @ts-expect-error
-		<Cloud {...cloudProps}>
-			<>{renderedIcons}</>
-		</Cloud>
-	);
+	// @ts-expect-error
+	return <Cloud {...cloudProps}>{renderedIcons}</Cloud>;
 }
