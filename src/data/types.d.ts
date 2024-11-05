@@ -1,7 +1,7 @@
 export type ProjectType = {
 	title: string;
 	slug: string;
-	image: string;
+	image: StaticImageData;
 	link: string;
 	repository: string;
 	desc: string;
