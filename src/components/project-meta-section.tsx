@@ -19,11 +19,10 @@ export default function ProjectMetaSection({ slug }: { slug: string }) {
 		<section className="w-full">
 			<Image
 				priority
-				width={896}
-				height={504}
 				quality={100}
 				src={data.image}
 				alt={data.title}
+				placeholder="blur"
 				className="mx-auto aspect-video w-full rounded-lg bg-zinc-800 object-cover"
 			/>
 			<h1 className="mt-3 text-2xl font-extrabold text-zinc-50 md:mt-5 md:!text-[42px]">
