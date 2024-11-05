@@ -39,8 +39,7 @@ export default function ProjectCard({ data }: PropsTypes) {
 						<Image
 							src={project.image}
 							alt={project.title}
-							width={350}
-							height={200}
+							placeholder="blur"
 							className="aspect-video w-full rounded-md object-cover"
 						/>
 						<TechStack tech={project.techStack} className="mt-4" />
