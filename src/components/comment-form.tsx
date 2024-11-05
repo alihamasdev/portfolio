@@ -7,7 +7,7 @@ import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
 import Transition from "@/lib/transitions";
-import projects from "@/data/projects.json";
+import projects from "@/data/projects";
 import { action } from "@/app/contact/action";
 import { Select, SelectItem } from "@/components/ui/select";
 import { SelectValue, SelectContent, SelectTrigger } from "@/components/ui/select";

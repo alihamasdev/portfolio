@@ -22,7 +22,7 @@ export default function ProjectCard({ data }: PropsTypes) {
 				className="group relative rounded-xl border border-zinc-800"
 			>
 				<Link
-					href={"/projects/" + project.slug}
+					href={`/projects/${project.slug}`}
 					onMouseEnter={() => setHoveredIndex(index)}
 					onMouseLeave={() => setHoveredIndex(null)}
 				>
@@ -40,7 +40,7 @@ export default function ProjectCard({ data }: PropsTypes) {
 							src={project.image}
 							alt={project.title}
 							width={350}
-							height={350}
+							height={200}
 							className="aspect-video w-full rounded-md object-cover"
 						/>
 						<TechStack tech={project.techStack} className="mt-4" />

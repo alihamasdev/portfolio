@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import projects from "@/data/projects.json";
+import projects from "@/data/projects";
 import { Link2Icon, GitHubLogoIcon, EyeOpenIcon } from "@radix-ui/react-icons";
 
 export default function ProjectMetaSection({ slug }: { slug: string }) {
