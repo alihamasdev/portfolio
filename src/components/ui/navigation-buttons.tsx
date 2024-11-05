@@ -2,7 +2,7 @@
 import Link from "next/link";
 import pages from "@/data/pages.json";
 import Transition from "@/lib/transitions";
-import projects from "@/data/projects.json";
+import projects from "@/data/projects";
 import { usePathname } from "next/navigation";
 import { buttonVariants } from "@/components/ui/button";
 import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";

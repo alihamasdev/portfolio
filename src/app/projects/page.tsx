@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import Transition from "@/lib/transitions";
-import projects from "@/data/projects.json";
+import projects from "@/data/projects";
 import Heading from "@/components/ui/page-heading";
 import ProjectCard from "@/components/project-card";
 import NavigationButtons from "@/components/ui/navigation-buttons";
