@@ -1,3 +1,1 @@
 # Developer Portfolio
-
-coming soon.....
