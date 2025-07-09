@@ -1,7 +1,0 @@
-[
-	{ "title": "Home", "slug": "/" },
-	{ "title": "Projects", "slug": "/projects" },
-	{ "title": "About", "slug": "/about" },
-	{ "title": "Contact", "slug": "/contact" },
-	{ "title": "Comments", "slug": "/comments" }
-]

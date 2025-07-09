@@ -1,53 +1,78 @@
-@tailwind base;
-@tailwind utilities;
-@tailwind components;
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--font-sans: var(--font-geist-sans);
+	--font-mono: var(--font-geist-mono);
+	--color-ring: var(--ring);
+	--color-input: var(--input);
+	--color-border: var(--border);
+	--color-destructive: var(--destructive);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-accent: var(--accent);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-muted: var(--muted);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-secondary: var(--secondary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-primary: var(--primary);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-popover: var(--popover);
+	--color-card-foreground: var(--card-foreground);
+	--color-card: var(--card);
+}
+
+:root {
+	--background: oklch(1 0 0);
+	--foreground: oklch(0.141 0.005 285.823);
+	--card: oklch(1 0 0);
+	--card-foreground: oklch(0.141 0.005 285.823);
+	--popover: oklch(1 0 0);
+	--popover-foreground: oklch(0.141 0.005 285.823);
+	--primary: oklch(0.21 0.006 285.885);
+	--primary-foreground: oklch(0.985 0 0);
+	--secondary: oklch(0.967 0.001 286.375);
+	--secondary-foreground: oklch(0.21 0.006 285.885);
+	--muted: oklch(0.967 0.001 286.375);
+	--muted-foreground: oklch(0.552 0.016 285.938);
+	--accent: oklch(0.967 0.001 286.375);
+	--accent-foreground: oklch(0.21 0.006 285.885);
+	--destructive: oklch(0.577 0.245 27.325);
+	--border: oklch(0.92 0.004 286.32);
+	--input: oklch(0.92 0.004 286.32);
+	--ring: oklch(0.705 0.015 286.067);
+}
+
+.dark {
+	--background: oklch(0.141 0.005 285.823);
+	--foreground: oklch(0.985 0 0);
+	--card: oklch(0.21 0.006 285.885);
+	--card-foreground: oklch(0.985 0 0);
+	--popover: oklch(0.21 0.006 285.885);
+	--popover-foreground: oklch(0.985 0 0);
+	--primary: oklch(0.92 0.004 286.32);
+	--primary-foreground: oklch(0.21 0.006 285.885);
+	--secondary: oklch(0.274 0.006 286.033);
+	--secondary-foreground: oklch(0.985 0 0);
+	--muted: oklch(0.274 0.006 286.033);
+	--muted-foreground: oklch(0.705 0.015 286.067);
+	--accent: oklch(0.274 0.006 286.033);
+	--accent-foreground: oklch(0.985 0 0);
+	--destructive: oklch(0.704 0.191 22.216);
+	--border: oklch(1 0 0 / 10%);
+	--input: oklch(1 0 0 / 15%);
+	--ring: oklch(0.552 0.016 285.938);
+}
 
 @layer base {
-	@import "./mdx.css";
-	:root {
-		--scale-x: 0;
-		--gradient: linear-gradient(to right, theme(colors.purple.600), theme(colors.accent.pink));
-		--text-gradient: linear-gradient(
-			75deg,
-			theme(colors.accent.blue) 0,
-			theme(colors.accent.purple) 9%,
-			theme(colors.accent.pink) 20%,
-			theme(colors.accent.pink) 24%,
-			theme(colors.accent.purple) 35%,
-			theme(colors.accent.purple) 44%,
-			theme(colors.accent.purple) 50%,
-			theme(colors.accent.pink) 56%,
-			#131314 75%,
-			#131314 100%
-		);
+	* {
+		@apply border-border outline-ring/50;
 	}
-	html {
-		@apply scroll-smooth;
+	body {
+		@apply bg-background text-foreground antialiased;
 	}
-}
-
-@layer components {
-	.decoration-gradient {
-		@apply relative cursor-pointer transition-colors before:absolute before:-bottom-1 before:left-0 before:h-[3px] before:w-full before:origin-left before:scale-x-[var(--scale-x)] before:rounded-full before:transition-all before:[background-image:var(--gradient)] md:before:hover:scale-x-100;
-	}
-	.text-gradient {
-		@apply bg-clip-text text-transparent [background-image:var(--text-gradient)] [background-size:400%_100%];
-	}
-	.main-heading {
-		@apply text-gradient w-fit text-3xl font-bold md:text-5xl;
-	}
-	.spinner {
-		@apply size-7 animate-spin rounded-full border-4 border-zinc-600 border-t-zinc-50;
-	}
-}
-
-::-webkit-search-cancel-button {
-	-webkit-appearance: none;
-	appearance: none;
-	height: 15px;
-	width: 15px;
-	background-size: 15px 15px;
-	margin-left: 10px;
-	cursor: pointer;
-	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23d4d4d8" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>');
 }
