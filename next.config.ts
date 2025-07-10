@@ -1,7 +1,21 @@
-import type { NextConfig } from "next";
+import { type NextConfig } from "next";
+import createMDX from "@next/mdx";
+import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
+
+// import rehypePrettyCode from "rehype-pretty-code";
 
 const nextConfig: NextConfig = {
-	/* config options here */
+	pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"]
 };
 
-export default nextConfig;
+const withMDX = createMDX({
+	extension: /\.mdx?$/,
+	options: {
+		remarkPlugins: [remarkGfm],
+		rehypePlugins: [rehypeSlug]
+	}
+});
+
+export default withMDX(nextConfig);
+// [rehypePrettyCode, { theme: "one-dark-pro" }]
