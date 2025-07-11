@@ -13,9 +13,9 @@
 	--color-border: var(--border);
 	--color-destructive: var(--destructive);
 	--color-accent: var(--accent);
-	--color-accent-purple: #a855f7;
-	--color-accent-blue: #3b82f6;
-	--color-accent-pink: #d96570;
+	--color-accent-purple: oklch(62.684% 0.23265 303.896);
+	--color-accent-blue: oklch(62.31% 0.1881 259.83);
+	--color-accent-pink: oklch(64.984% 0.14575 16.174);
 	--color-accent-foreground: var(--accent-foreground);
 	--color-muted-foreground: var(--muted-foreground);
 	--color-muted: var(--muted);
@@ -48,10 +48,13 @@
 	--border: oklch(0.92 0.004 286.32);
 	--input: oklch(0.92 0.004 286.32);
 	--ring: oklch(0.705 0.015 286.067);
+
+	--scale-x: 0;
+	--gradient: linear-gradient(to right, theme(--color-accent-purple), theme(--color-accent-pink));
 }
 
 .dark {
-	--background: oklch(0.141 0.005 285.823);
+	--background: oklch(0% 0 0);
 	--foreground: oklch(0.985 0 0);
 	--card: oklch(0.21 0.006 285.885);
 	--card-foreground: oklch(0.985 0 0);
@@ -77,5 +80,14 @@
 	}
 	body {
 		@apply bg-background text-foreground antialiased;
+	}
+	html {
+		@apply scroll-smooth;
+	}
+}
+
+@layer components {
+	.decoration-gradient {
+		@apply relative cursor-pointer transition-colors before:absolute before:-bottom-1 before:left-0 before:h-[3px] before:w-full before:origin-left before:scale-x-(--scale-x) before:rounded-full before:[background-image:var(--gradient)] before:transition-transform before:duration-200 hover:before:scale-x-100;
 	}
 }

@@ -1,157 +1,47 @@
 "use client";
 
-import * as React from "react";
-import { Tooltip as TooltipPrimitive } from "@base-ui-components/react/tooltip";
-import { AnimatePresence, type HTMLMotionProps, motion, type Transition } from "motion/react";
+import { Tooltip as TooltipPrimitive } from "radix-ui";
 
 import { cn } from "@/lib/utils";
 
-type TooltipContextType = { isOpen: boolean };
-
-const TooltipContext = React.createContext<TooltipContextType | undefined>(undefined);
-
-const useTooltip = (): TooltipContextType => {
-	const context = React.useContext(TooltipContext);
-	if (!context) {
-		throw new Error("useTooltip must be used within a Tooltip");
-	}
-	return context;
-};
-
-type Side = React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Positioner>["side"];
-
-type Align = React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Positioner>["align"];
-
-const getInitialPosition = (side: Side) => {
-	switch (side) {
-		case "top":
-			return { y: 15 };
-		case "bottom":
-			return { y: -15 };
-		case "left":
-		case "inline-start":
-			return { x: 15 };
-		case "right":
-		case "inline-end":
-			return { x: -15 };
-	}
-};
-
-type TooltipProviderProps = React.ComponentProps<typeof TooltipPrimitive.Provider>;
-
-function TooltipProvider(props: TooltipProviderProps) {
-	return <TooltipPrimitive.Provider data-slot="tooltip-provider" {...props} />;
+function TooltipProvider({ delayDuration = 0, ...props }: React.ComponentProps<typeof TooltipPrimitive.Provider>) {
+	return <TooltipPrimitive.Provider data-slot="tooltip-provider" delayDuration={delayDuration} {...props} />;
 }
 
-type TooltipProps = React.ComponentProps<typeof TooltipPrimitive.Root>;
-
-function Tooltip(props: TooltipProps) {
-	const [isOpen, setIsOpen] = React.useState(props?.open ?? props?.defaultOpen ?? false);
-
-	React.useEffect(() => {
-		if (props?.open !== undefined) setIsOpen(props.open);
-	}, [props?.open]);
-
-	const handleOpenChange = React.useCallback(
-		(open: boolean, event: Event | undefined, reason: Parameters<NonNullable<TooltipProps["onOpenChange"]>>[2]) => {
-			setIsOpen(open);
-			props.onOpenChange?.(open, event, reason);
-		},
-		[props]
-	);
-
+function Tooltip({ ...props }: React.ComponentProps<typeof TooltipPrimitive.Root>) {
 	return (
-		<TooltipContext.Provider value={{ isOpen }}>
-			<TooltipPrimitive.Root data-slot="tooltip" {...props} onOpenChange={handleOpenChange} />
-		</TooltipContext.Provider>
+		<TooltipProvider>
+			<TooltipPrimitive.Root data-slot="tooltip" {...props} />
+		</TooltipProvider>
 	);
 }
 
-type TooltipTriggerProps = React.ComponentProps<typeof TooltipPrimitive.Trigger>;
-
-function TooltipTrigger(props: TooltipTriggerProps) {
+function TooltipTrigger({ ...props }: React.ComponentProps<typeof TooltipPrimitive.Trigger>) {
 	return <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />;
 }
 
-type TooltipContentProps = React.ComponentProps<typeof TooltipPrimitive.Positioner> & {
-	transition?: Transition;
-	popupProps?: typeof TooltipPrimitive.Popup;
-	motionProps?: HTMLMotionProps<"div">;
-	positionerClassName?: string;
-	arrow?: boolean;
-};
-
 function TooltipContent({
 	className,
-	popupProps,
-	motionProps,
-	positionerClassName,
-	side = "top",
-	sideOffset = 10,
-	transition = { type: "spring", stiffness: 300, damping: 25 },
-	arrow = true,
+	sideOffset = 0,
 	children,
 	...props
-}: TooltipContentProps) {
-	const { isOpen } = useTooltip();
-	const initialPosition = getInitialPosition(side);
-
+}: React.ComponentProps<typeof TooltipPrimitive.Content>) {
 	return (
-		<AnimatePresence>
-			{isOpen && (
-				<TooltipPrimitive.Portal keepMounted data-slot="tooltip-portal">
-					<TooltipPrimitive.Positioner
-						data-slot="tooltip-positioner"
-						side={side}
-						sideOffset={sideOffset}
-						className={cn("z-50", positionerClassName)}
-						{...props}
-					>
-						<TooltipPrimitive.Popup
-							data-slot="tooltip-popup"
-							{...popupProps}
-							className={cn(
-								"bg-primary text-primary-foreground relative w-fit text-balance rounded-md px-3 py-1.5 text-xs font-medium shadow-md",
-								className
-							)}
-							render={
-								<motion.div
-									key="tooltip-content"
-									initial={{ opacity: 0, scale: 0.5, ...initialPosition }}
-									animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
-									exit={{ opacity: 0, scale: 0.5, ...initialPosition }}
-									transition={transition}
-									{...motionProps}
-								/>
-							}
-						>
-							{children}
-
-							{arrow && (
-								<TooltipPrimitive.Arrow
-									data-slot="tooltip-content-arrow"
-									className="bg-primary fill-primary z-50 size-2.5 rotate-45 rounded-[2px] data-[side='bottom']:-top-[4px] data-[side='inline-end']:-left-[4px] data-[side='inline-start']:-right-[4px] data-[side='left']:-right-[4px] data-[side='right']:-left-[4px]"
-								/>
-							)}
-						</TooltipPrimitive.Popup>
-					</TooltipPrimitive.Positioner>
-				</TooltipPrimitive.Portal>
-			)}
-		</AnimatePresence>
+		<TooltipPrimitive.Portal>
+			<TooltipPrimitive.Content
+				data-slot="tooltip-content"
+				sideOffset={sideOffset}
+				className={cn(
+					"bg-primary text-primary-foreground animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-fit origin-(--radix-tooltip-content-transform-origin) rounded-md px-3 py-1.5 text-xs text-balance font-medium",
+					className
+				)}
+				{...props}
+			>
+				{children}
+				<TooltipPrimitive.Arrow className="bg-primary fill-primary z-50 size-2.5 translate-y-[calc(-50%_-_2px)] rotate-45 rounded-[2px]" />
+			</TooltipPrimitive.Content>
+		</TooltipPrimitive.Portal>
 	);
 }
 
-export {
-	TooltipProvider,
-	Tooltip,
-	TooltipTrigger,
-	TooltipContent,
-	useTooltip,
-	type TooltipContextType,
-	type TooltipProviderProps,
-	type TooltipProps,
-	type TooltipTriggerProps,
-	type TooltipContentProps,
-	type Side,
-	type Align
-};
+export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider };

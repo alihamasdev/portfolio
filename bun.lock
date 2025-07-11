@@ -21,6 +21,7 @@
         "react-dom": "^19.1.0",
         "react-hook-form": "^7.60.0",
         "react-icon-cloud": "^4.1.7",
+        "react-inlinesvg": "^4.2.0",
         "sonner": "^2.0.6",
         "tailwind-merge": "^3.3.1",
         "zod": "^4.0.0",
@@ -1119,9 +1120,13 @@
 
     "react-dom": ["react-dom@19.1.0", "", { "dependencies": { "scheduler": "^0.26.0" }, "peerDependencies": { "react": "^19.1.0" } }, "sha512-Xs1hdnE+DyKgeHJeJznQmYMIBG3TKIHJJT95Q58nHLSrElKlGQqDTR2HQ9fx5CN/Gk6Vh/kupBTDLU11/nDk/g=="],
 
+    "react-from-dom": ["react-from-dom@0.7.5", "", { "peerDependencies": { "react": "16.8 - 19" } }, "sha512-CO92PmMKo/23uYPm6OFvh5CtZbMgHs/Xn+o095Lz/TZj9t8DSDhGdSOMLxBxwWI4sr0MF17KUn9yJWc5Q00R/w=="],
+
     "react-hook-form": ["react-hook-form@7.60.0", "", { "peerDependencies": { "react": "^16.8.0 || ^17 || ^18 || ^19" } }, "sha512-SBrYOvMbDB7cV8ZfNpaiLcgjH/a1c7aK0lK+aNigpf4xWLO8q+o4tcvVurv3c4EOyzn/3dCsYt4GKD42VvJ/+A=="],
 
     "react-icon-cloud": ["react-icon-cloud@4.1.7", "", { "dependencies": { "@csstools/convert-colors": "^2.0.0" }, "peerDependencies": { "react": ">=16" } }, "sha512-E5k93BlO7dNLmFZPd0JlJ1dO6pUI86IarVEXo3bkQg6oFqqwKv3XFkEKRl2iaxB9K2uOvOvoCJu2kjkoQWI6Mg=="],
+
+    "react-inlinesvg": ["react-inlinesvg@4.2.0", "", { "dependencies": { "react-from-dom": "^0.7.5" }, "peerDependencies": { "react": "16.8 - 19" } }, "sha512-V59P6sFU7NACIbvoay9ikYKVFWyIIZFGd7w6YT1m+H7Ues0fOI6B6IftE6NPSYXXv7RHVmrncIyJeYurs3OJcA=="],
 
     "react-is": ["react-is@16.13.1", "", {}, "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="],
 

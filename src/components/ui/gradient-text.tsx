@@ -5,7 +5,7 @@ import { Slot as SlotPrimitive } from "radix-ui";
 
 import { cn } from "@/lib/utils";
 
-interface GradientTextProps extends React.ComponentProps<"h1"> {
+interface GradientTextProps extends React.ComponentProps<"span"> {
 	gradient?: string;
 	transition?: Transition;
 	asChild?: boolean;
@@ -19,10 +19,10 @@ function GradientText({
 	children,
 	...props
 }: GradientTextProps) {
-	const Comp = asChild ? SlotPrimitive.Slot : "h1";
+	const Comp = asChild ? SlotPrimitive.Slot : "span";
 
 	return (
-		<Comp data-slot="gradient-text" className={cn("relative text-4xl font-bold", className)} {...props}>
+		<Comp data-slot="gradient-text" className={cn("relative", className)} {...props}>
 			<motion.span
 				className="bg-[length:700%_100%] bg-clip-text bg-[position:0%_0%] text-transparent"
 				style={{ backgroundImage: gradient }}
