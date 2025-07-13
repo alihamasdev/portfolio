@@ -3,7 +3,7 @@
 import * as React from "react";
 import { motion, type Variants } from "motion/react";
 
-import { getVariants, useAnimateIconContext, IconWrapper, type IconProps } from "@/components/icons/icon";
+import { getVariants, IconWrapper, useAnimateIconContext, type IconProps } from "@/components/icons/icon";
 
 type MenuProps = IconProps<keyof typeof animations>;
 
@@ -16,7 +16,7 @@ const animations = {
 				x: -2.35,
 				y: 0.35,
 				transformOrigin: "top right",
-				transition: { type: "spring", stiffness: 200, damping: 20 }
+				transition: { type: "spring", stiffness: 200, damping: 20, duration: 0.2 }
 			}
 		},
 		line2: { initial: { opacity: 1 }, animate: { opacity: 0, transition: { ease: "easeInOut", duration: 0.2 } } },
@@ -27,7 +27,7 @@ const animations = {
 				x: -2.35,
 				y: -0.35,
 				transformOrigin: "bottom right",
-				transition: { type: "spring", stiffness: 200, damping: 20 }
+				transition: { type: "spring", stiffness: 200, damping: 20, duration: 0.2 }
 			}
 		}
 	} satisfies Record<string, Variants>
