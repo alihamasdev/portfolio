@@ -3,10 +3,11 @@ import createMDX from "@next/mdx";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 
-// import rehypePrettyCode from "rehype-pretty-code";
-
 const nextConfig: NextConfig = {
-	pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"]
+	pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+	experimental: {
+		viewTransition: true
+	}
 };
 
 const withMDX = createMDX({
@@ -18,4 +19,3 @@ const withMDX = createMDX({
 });
 
 export default withMDX(nextConfig);
-// [rehypePrettyCode, { theme: "one-dark-pro" }]

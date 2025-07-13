@@ -3,25 +3,18 @@
 import { Fragment, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { socialLinks } from "@/data/social-links";
 import { AnimatePresence, motion } from "motion/react";
 import { Portal } from "radix-ui";
 
 import { cn } from "@/lib/utils";
+import { pages } from "@/data/pages-data";
+import { socialLinks } from "@/data/social-links";
 import { buttonVariants } from "@/components/ui/button";
 import { GradientText } from "@/components/ui/gradient-text";
 import { Icon } from "@/components/ui/icon";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { AnimateIcon } from "@/components/icons/icon";
 import { MenuIcon } from "@/components/icons/menu";
-
-const navLinks = [
-	{ name: "Home", link: "/" },
-	{ name: "Projects", link: "/projects" },
-	{ name: "Blogs", link: "/blogs" },
-	{ name: "About", link: "/about" },
-	{ name: "Contact", link: "/contact" }
-];
 
 export function NavMenu() {
 	const path = usePathname();
@@ -56,23 +49,23 @@ export function NavMenu() {
 						>
 							<div />
 							<ul className="flex flex-col gap-y-4">
-								{navLinks.map(({ name, link }, index) => (
+								{pages.map(({ title, url }, index) => (
 									<motion.li
-										key={name}
+										key={title}
 										className="relative text-center"
 										initial={{ opacity: 0, y: 70 }}
 										animate={{ opacity: 1, y: 0, transition: { duration: 0.3, delay: index * 0.1 + 0.4 } }}
 										exit={{ opacity: 0, y: -70, transition: { duration: 0.3, delay: index * 0.1 } }}
 									>
 										<Link
-											href={link}
+											href={url}
 											onClick={() => setOpen(false)}
 											className={cn("text-foreground text-lg font-semibold hover:[--scale-x:1] md:text-xl")}
 										>
-											{link === path ? (
-												<GradientText>{name}</GradientText>
+											{url === path ? (
+												<GradientText>{title}</GradientText>
 											) : (
-												<span className="decoration-gradient">{name}</span>
+												<span className="decoration-gradient">{title}</span>
 											)}
 										</Link>
 									</motion.li>
