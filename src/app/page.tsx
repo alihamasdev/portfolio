@@ -16,10 +16,10 @@ export default function HomePage() {
 		<>
 			<div className="mx-auto grid min-h-dvh w-full grid-cols-1 place-items-center gap-8 md:grid-cols-[1.3fr_0.7fr]">
 				<div className="flex flex-col items-start justify-center pt-28 md:pt-0">
-					<FadeUp transition={{ delay: 0.1 }}>
+					<FadeUp transition={{ delay: 0.2 }}>
 						<p className="text-foreground/80 text-base font-semibold md:text-lg">👋 Hi,</p>
 					</FadeUp>
-					<FadeUp transition={{ delay: 0.2 }} className="md:mt-2">
+					<FadeUp transition={{ delay: 0.4 }} className="md:mt-2">
 						<h1 className="flex flex-col items-start gap-x-[9px] text-3xl leading-tight font-bold md:flex-row md:text-[42px]">
 							<div className="flex items-center gap-x-[9px]">
 								<span>I&apos;m</span>
@@ -29,7 +29,7 @@ export default function HomePage() {
 							<span>Frontend Developer</span>
 						</h1>
 					</FadeUp>
-					<FadeUp transition={{ delay: 0.3 }} className="mt-1 md:mt-2">
+					<FadeUp transition={{ delay: 0.6 }} className="mt-1 md:mt-2">
 						<p className="text-foreground/80 text-sm font-medium md:text-base">
 							A self-taught developer, who&apos;s currently pursuing a Full-Stack development to create stunning user
 							experiences on the front-end, scalable, and secure infrastructure on the backend.
@@ -37,7 +37,7 @@ export default function HomePage() {
 					</FadeUp>
 					<div className="mt-2 flex items-center gap-3 md:mt-2 md:gap-5">
 						{socialLinks.map(({ name, icon, link }, index) => (
-							<FadeUp key={name} transition={{ delay: index * 0.1 + 0.3 }}>
+							<FadeUp key={name} transition={{ delay: index * 0.1 + 0.6 }}>
 								<Link
 									href={link}
 									target={index === 0 ? "_self" : "_blank"}
@@ -50,7 +50,7 @@ export default function HomePage() {
 						))}
 					</div>
 				</div>
-				<IconCloud />
+				<IconCloud transition={{ duration: 0.3, delay: 1 }} />
 			</div>
 		</>
 	);

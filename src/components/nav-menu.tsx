@@ -74,7 +74,7 @@ export function NavMenu() {
 							<div className="flex items-center gap-x-4">
 								{socialLinks.map(({ name, icon, link, tooltip }, index) => (
 									<Tooltip key={name}>
-										<TooltipTrigger asChild>
+										<TooltipTrigger>
 											<motion.a
 												href={link}
 												target="_blank"

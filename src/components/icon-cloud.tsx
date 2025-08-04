@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { motion } from "motion/react";
+import { HTMLMotionProps, motion } from "motion/react";
 import { Cloud, fetchSimpleIcons, ICloud, renderSimpleIcon, SimpleIcon } from "react-icon-cloud";
 
 export const cloudProps: Omit<ICloud, "children"> = {
@@ -77,7 +77,7 @@ const skills = [
 	"npm"
 ];
 
-export function IconCloud() {
+export function IconCloud({ ...props }: HTMLMotionProps<"div">) {
 	const [data, setData] = useState<IconData | null>(null);
 
 	useEffect(() => {
@@ -94,7 +94,8 @@ export function IconCloud() {
 		<motion.div
 			className="px-6 md:px-0"
 			initial={{ opacity: 0, scale: 0 }}
-			animate={{ opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.7 } }}
+			animate={{ opacity: 1, scale: 1 }}
+			{...props}
 		>
 			<Cloud {...cloudProps}>{renderedIcons}</Cloud>
 		</motion.div>

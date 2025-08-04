@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { AnimatePresence, Transition, motion } from "motion/react";
+import { AnimatePresence, motion, Transition } from "motion/react";
 
 import { cn } from "@/lib/utils";
 
@@ -215,7 +215,7 @@ function MotionHighlight<T extends string>({ ref, ...props }: MotionHighlightPro
 										transition: { ...transition, delay: (transition?.delay ?? 0) + (exitDelay ?? 0) }
 									}}
 									transition={transition}
-									className={cn("bg-muted absolute z-0", className, activeClassNameState)}
+									className={cn("bg-muted/70 absolute z-0 rounded-xl", className, activeClassNameState)}
 								/>
 							)}
 						</AnimatePresence>
@@ -435,8 +435,8 @@ function MotionHighlightItem({
 						{isActive && !isDisabled && (
 							<motion.div
 								layoutId={`transition-background-${contextId}`}
-								data-slot="motion-highlight"
-								className={cn("bg-muted absolute inset-0 z-0", contextClassName, activeClassName)}
+								data-slot="motion-highlight-overlay"
+								className={cn("bg-muted/70 absolute inset-0 z-0 rounded-xl", contextClassName, activeClassName)}
 								transition={itemTransition}
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
@@ -452,7 +452,7 @@ function MotionHighlightItem({
 						)}
 					</AnimatePresence>
 
-					<div data-slot="motion-highlight-item" className={cn("relative z-[1]", className)} {...dataAttributes}>
+					<div data-slot="motion-highlight-item" className={cn("relative z-1 flex", className)} {...dataAttributes}>
 						{children}
 					</div>
 				</>
@@ -481,8 +481,8 @@ function MotionHighlightItem({
 					{isActive && !isDisabled && (
 						<motion.div
 							layoutId={`transition-background-${contextId}`}
-							data-slot="motion-highlight"
-							className={cn("bg-muted absolute inset-0 z-0", contextClassName, activeClassName)}
+							data-slot="motion-highlight-overlay"
+							className={cn("bg-muted/70 absolute inset-0 z-0 rounded-xl", contextClassName, activeClassName)}
 							transition={itemTransition}
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
@@ -500,7 +500,7 @@ function MotionHighlightItem({
 			)}
 
 			{React.cloneElement(element, {
-				className: cn("relative z-[1]", element.props.className),
+				className: cn("relative z-1 flex", element.props.className),
 				...getNonOverridingDataAttributes(element, { ...dataAttributes, "data-slot": "motion-highlight-item" })
 			})}
 		</div>

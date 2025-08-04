@@ -14,7 +14,7 @@ export function TransitionContainer(props: React.ComponentProps<"div">) {
 	);
 }
 
-interface FadeUpProps extends HTMLMotionProps<"span"> {
+interface FadeUpProps extends HTMLMotionProps<"div"> {
 	offset?: number;
 	inView?: boolean;
 	initial?: TargetAndTransition;
@@ -23,16 +23,15 @@ interface FadeUpProps extends HTMLMotionProps<"span"> {
 	transition?: Transition;
 }
 
-export function FadeUp({ offset = 70, initial, animate, transition, exit, inView, ...props }: FadeUpProps) {
-	const transitionAnimate = { opacity: 1, y: 0, ...animate };
-
+export function FadeUp({ offset = 70, inView = false, initial, animate, transition, exit, ...props }: FadeUpProps) {
 	return (
-		<motion.span
+		<motion.div
+			data-slot="fade-up-transition"
+			data-delay={transition?.delay}
 			initial={{ opacity: 0, y: offset, ...initial }}
-			animate={!inView && transitionAnimate}
-			exit={{ opacity: 0, y: offset, ...exit }}
+			animate={!inView && { opacity: 1, y: 0, ...animate }}
 			transition={{ duration: 0.3, ...transition }}
-			whileInView={inView ? transitionAnimate : undefined}
+			whileInView={inView ? { opacity: 1, y: 0, ...animate } : undefined}
 			{...props}
 		/>
 	);
