@@ -1,18 +1,6 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "motion/react";
-import type { HTMLMotionProps, TargetAndTransition, Transition } from "motion/react";
-
-export function TransitionContainer(props: React.ComponentProps<"div">) {
-	const path = usePathname();
-
-	return (
-		<AnimatePresence mode="wait">
-			<div key={path} {...props} />
-		</AnimatePresence>
-	);
-}
+import { motion, type HTMLMotionProps, type TargetAndTransition, type Transition } from "motion/react";
 
 interface FadeUpProps extends HTMLMotionProps<"div"> {
 	offset?: number;
@@ -23,7 +11,7 @@ interface FadeUpProps extends HTMLMotionProps<"div"> {
 	transition?: Transition;
 }
 
-export function FadeUp({ offset = 70, inView = false, initial, animate, transition, exit, ...props }: FadeUpProps) {
+export function FadeUp({ offset = 70, inView = false, initial, animate, transition, ...props }: FadeUpProps) {
 	return (
 		<motion.div
 			data-slot="fade-up-transition"
