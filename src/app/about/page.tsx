@@ -30,11 +30,11 @@ export default function AboutPage() {
 			<FadeUp transition={{ delay: 0.6 }}>
 				<h2>Web Design</h2>
 				<p>
-					My journey into the field of computers began in 2021. Back then, I had no clue about programming as I did't
-					study computer in matriculation or intermediate and thought it was an extremely tough field to get into. I
-					decided to start with something more visual and began learning Adobe Illustrator for logo designing, aiming to
-					become a web designer. But, as it turns out, I wasn&apos;t very good at designing and quickly realized it
-					wasn&apos;t the right path for me.
+					My journey into the field of computers began in 2021. Back then, I had no clue about programming as I
+					did&apos;t study computer in matriculation or intermediate and thought it was an extremely tough field to get
+					into. I decided to start with something more visual and began learning Adobe Illustrator for logo designing,
+					aiming to become a web designer. But, as it turns out, I wasn&apos;t very good at designing and quickly
+					realized it wasn&apos;t the right path for me.
 				</p>
 			</FadeUp>
 			<FadeUp transition={{ delay: 0.8 }}>
@@ -91,9 +91,9 @@ export default function AboutPage() {
 			</FadeUp>
 			<FadeUp transition={{ delay: 1.8 }}>
 				<p>
-					Thanks for reading my story! I'm currently exploring backend development and excited to take on new
-					challenges. If you have any opportunities or projects in mind, I'm available for full-stack collaborations.
-					Feel free to connect with me.
+					Thanks for reading my story! I&apos;m currently exploring backend development and excited to take on new
+					challenges. If you have any opportunities or projects in mind, I&apos;m available for full-stack
+					collaborations. Feel free to connect with me.
 				</p>
 			</FadeUp>
 		</div>

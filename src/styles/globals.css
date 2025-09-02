@@ -90,4 +90,29 @@
 	.decoration-gradient {
 		@apply relative cursor-pointer transition-colors before:absolute before:-bottom-1 before:left-0 before:h-[3px] before:w-full before:origin-left before:scale-x-(--scale-x) before:rounded-full before:[background-image:var(--gradient)] before:transition-transform before:duration-200 hover:before:scale-x-100;
 	}
+	.prose h1 {
+		@apply my-3 text-3xl font-extrabold md:text-3xl;
+	}
+	.prose h2 {
+		@apply my-3 text-xl font-bold md:text-2xl;
+	}
+	.prose h3 {
+		@apply my-3 text-xl font-bold md:text-2xl;
+	}
+	.prose p {
+		@apply text-sm/6 md:text-base/7;
+	}
+	.prose hr {
+		@apply my-5 border-t;
+	}
+	.prose ul,
+	.prose ol {
+		@apply my-3 list-inside;
+	}
+	.prose ul li {
+		@apply list-disc;
+	}
+	.prose ol li {
+		@apply list-decimal marker:mr-1;
+	}
 }
