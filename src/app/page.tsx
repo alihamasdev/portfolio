@@ -6,7 +6,7 @@ import { IconCloud } from "@/components/icon-cloud";
 import { FadeUp } from "@/components/transitions";
 
 const socialLinks: { name: string; icon: IconId; link: string }[] = [
-	{ name: "Resume", icon: "file", link: "/resume" },
+	{ name: "Resume", icon: "file", link: "http://bit.ly/4g5wuV9" },
 	{ name: "Github", icon: "github", link: "https://github.com/alihamasdev" },
 	{ name: "LinkedIn", icon: "linkedin", link: "https://linkedin.com/in/alihamasdev" }
 ];
@@ -40,7 +40,7 @@ export default function HomePage() {
 							<FadeUp key={name} transition={{ delay: index * 0.1 + 0.6 }}>
 								<Link
 									href={link}
-									target={index === 0 ? "_self" : "_blank"}
+									target="_blank"
 									className="text-foreground/80 group hover:text-foreground flex items-center gap-x-1 transition-colors hover:[--scale-x:1]"
 								>
 									<Icon src={icon} className="fill-foreground/80 group-hover:fill-foreground size-4.5 transition-all" />

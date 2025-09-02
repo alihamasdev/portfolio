@@ -1,5 +1,6 @@
 import { type StaticImport } from "next/dist/shared/lib/get-img-props";
 import Chaty from "~/public/projects/chaty.jpeg";
+import CricketStat from "~/public/projects/cricket-stats.jpeg";
 import ImageCropper from "~/public/projects/image-cropper.jpeg";
 import ITab from "~/public/projects/itab.jpeg";
 import ScorecardGenerator from "~/public/projects/scorecard-generator.jpeg";
@@ -15,20 +16,24 @@ export const pages = [
 	{ title: "Contact", url: "/contact" }
 ];
 
-interface Projects {
+interface Project {
 	title: string;
 	url: string;
 	image: StaticImport;
-	description: string;
 	techStack: IconId[];
+	github: string;
+	live: string;
+	description: string;
 }
 
-export const projects: Projects[] = [
+export const projects: Project[] = [
 	{
 		title: "Twitter Clone",
 		url: "/projects/twitter-clone",
 		image: TwitterClone,
 		techStack: ["nextjs", "prisma", "supabase", "tailwindcss", "shadcn", "typescript"],
+		github: "https://github.com/alihamasdev/twitter-clone",
+		live: "https://twitter-alihamas.vercel.app",
 		description:
 			"Lorem ipsum odor amet, consectetuer adipiscing elit. Metus per pulvinar fames platea sollicitudin orci facilisi. Potenti varius pellentesque vel sed varius elit. Venenatis suspendisse odio, aliquam netus commodo dui. Nunc nec neque nunc molestie malesuada habitasse nibh? Porta habitasse euismod non egestas lobortis, vestibulum maecenas ut. Sagittis ut mus nec sollicitudin tellus lacus ad. Porttitor integer lacinia duis senectus litora."
 	},
@@ -37,6 +42,18 @@ export const projects: Projects[] = [
 		url: "/projects/chaty",
 		image: Chaty,
 		techStack: ["react", "firebase", "tailwindcss"],
+		github: "https://github.com/alihamasdev/chaty",
+		live: "https://chaty-alihamas.vercel.app",
+		description:
+			"Lorem ipsum odor amet, consectetuer adipiscing elit. Metus per pulvinar fames platea sollicitudin orci facilisi. Potenti varius pellentesque vel sed varius elit. Venenatis suspendisse odio, aliquam netus commodo dui. Nunc nec neque nunc molestie malesuada habitasse nibh? Porta habitasse euismod non egestas lobortis, vestibulum maecenas ut. Sagittis ut mus nec sollicitudin tellus lacus ad. Porttitor integer lacinia duis senectus litora."
+	},
+	{
+		title: "Cricket Stats",
+		url: "/projects/cricket-stats",
+		image: CricketStat,
+		techStack: ["nextjs", "supabase", "typescript", "shadcn", "tailwindcss"],
+		github: "https://github.com/alihamasdev/cricket-stats",
+		live: "https://stats-alihamas.vercel.app",
 		description:
 			"Lorem ipsum odor amet, consectetuer adipiscing elit. Metus per pulvinar fames platea sollicitudin orci facilisi. Potenti varius pellentesque vel sed varius elit. Venenatis suspendisse odio, aliquam netus commodo dui. Nunc nec neque nunc molestie malesuada habitasse nibh? Porta habitasse euismod non egestas lobortis, vestibulum maecenas ut. Sagittis ut mus nec sollicitudin tellus lacus ad. Porttitor integer lacinia duis senectus litora."
 	},
@@ -45,6 +62,8 @@ export const projects: Projects[] = [
 		url: "/projects/itab",
 		image: ITab,
 		techStack: ["react", "tailwindcss"],
+		github: "https://github.com/alihamasdev/itab",
+		live: "https://itab-alihamas.vercel.app",
 		description:
 			"Lorem ipsum odor amet, consectetuer adipiscing elit. Metus per pulvinar fames platea sollicitudin orci facilisi. Potenti varius pellentesque vel sed varius elit. Venenatis suspendisse odio, aliquam netus commodo dui. Nunc nec neque nunc molestie malesuada habitasse nibh? Porta habitasse euismod non egestas lobortis, vestibulum maecenas ut. Sagittis ut mus nec sollicitudin tellus lacus ad. Porttitor integer lacinia duis senectus litora."
 	},
@@ -52,15 +71,19 @@ export const projects: Projects[] = [
 		title: "Cricket Scorecard Generator",
 		url: "/projects/scorecard-generator",
 		image: ScorecardGenerator,
-		techStack: ["nextjs", "tailwindcss", "shadcn"],
+		techStack: ["nextjs", "typescript", "tailwindcss", "shadcn"],
+		github: "https://github.com/alihamasdev/scorecard-generator",
+		live: "https://scorecard-alihamas.vercel.app",
 		description:
 			"Lorem ipsum odor amet, consectetuer adipiscing elit. Metus per pulvinar fames platea sollicitudin orci facilisi. Potenti varius pellentesque vel sed varius elit. Venenatis suspendisse odio, aliquam netus commodo dui. Nunc nec neque nunc molestie malesuada habitasse nibh? Porta habitasse euismod non egestas lobortis, vestibulum maecenas ut. Sagittis ut mus nec sollicitudin tellus lacus ad. Porttitor integer lacinia duis senectus litora."
 	},
 	{
-		title: "Image Cropper",
+		title: "Image Cropper & Resizer",
 		url: "/projects/image-cropper",
 		image: ImageCropper,
-		techStack: ["nextjs", "tailwindcss", "shadcn"],
+		techStack: ["nextjs", "typescript", "tailwindcss", "shadcn"],
+		github: "https://github.com/alihamasdev/image-cropper",
+		live: "https://cropper-alihamas.vercel.app",
 		description:
 			"Lorem ipsum odor amet, consectetuer adipiscing elit. Metus per pulvinar fames platea sollicitudin orci facilisi. Potenti varius pellentesque vel sed varius elit. Venenatis suspendisse odio, aliquam netus commodo dui. Nunc nec neque nunc molestie malesuada habitasse nibh? Porta habitasse euismod non egestas lobortis, vestibulum maecenas ut. Sagittis ut mus nec sollicitudin tellus lacus ad. Porttitor integer lacinia duis senectus litora."
 	},
@@ -69,6 +92,8 @@ export const projects: Projects[] = [
 		url: "/projects/todo",
 		image: Todo,
 		techStack: ["react", "tailwindcss"],
+		github: "https://github.com/alihamasdev/todo-app",
+		live: "https://todo-alihamas.vercel.app",
 		description:
 			"Lorem ipsum odor amet, consectetuer adipiscing elit. Metus per pulvinar fames platea sollicitudin orci facilisi. Potenti varius pellentesque vel sed varius elit. Venenatis suspendisse odio, aliquam netus commodo dui. Nunc nec neque nunc molestie malesuada habitasse nibh? Porta habitasse euismod non egestas lobortis, vestibulum maecenas ut. Sagittis ut mus nec sollicitudin tellus lacus ad. Porttitor integer lacinia duis senectus litora."
 	}

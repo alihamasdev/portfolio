@@ -58,7 +58,7 @@ export function PageNavigation() {
 	}
 
 	return (
-		<div className="flex items-center justify-between py-8">
+		<div className="mt-auto flex w-full items-center justify-between py-8 peer-[.max-w-4xl]:max-w-4xl peer-[.mx-auto]:mx-auto">
 			{prevPage ? (
 				<Link href={prevPage.url} prefetch={false}>
 					<RippleButton variant="outline">
