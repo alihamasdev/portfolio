@@ -8,7 +8,7 @@ import { projects } from "@/data/pages-data";
 import { Icon } from "@/components/ui/icon";
 import { FadeUp } from "@/components/transitions";
 
-export function ProjectHeader() {
+export function ProjectHeader({ children }: { children?: React.ReactNode }) {
 	const path = usePathname();
 	const project = projects.find(({ url }) => url === path);
 
@@ -55,7 +55,10 @@ export function ProjectHeader() {
 					</a>
 				</FadeUp>
 			</div>
-			<div className="mt-3 w-full border-t" />
+			<FadeUp transition={{ delay: 1 }} className="my-3 w-full border-t" />
+			<FadeUp transition={{ delay: 1.2 }} className="prose w-full">
+				{children}
+			</FadeUp>
 		</>
 	);
 }
