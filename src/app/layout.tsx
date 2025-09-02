@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				<ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
 					<TooltipProvider>
 						<NavMenu />
-						<main className="mx-auto w-full max-w-6xl px-4 md:px-0">
+						<main className="mx-auto flex min-h-[calc(100dvh-70px)] w-full max-w-6xl flex-col px-4 md:px-0">
 							{children}
 							<PageNavigation />
 						</main>

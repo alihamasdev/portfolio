@@ -13,7 +13,11 @@ export default function ProjectsPage() {
 		<div className="flex min-h-dvh w-full flex-col">
 			<PageTitle>Projects</PageTitle>
 			<PageDescription>Showcase of my work on web development</PageDescription>
-			<MotionHighlight mode="parent" containerClassName="mt-4 grid grid-cols-3 gap-4" hover>
+			<MotionHighlight
+				mode="parent"
+				hover={true}
+				containerClassName="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+			>
 				{projects.map(({ title, url, image, techStack, description }, index) => (
 					<FadeUp key={title} data-value={title} transition={{ delay: index * 0.2 + 0.6 }}>
 						<Link href={url} className="block rounded-xl border p-4">
