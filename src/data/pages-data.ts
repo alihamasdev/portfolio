@@ -31,7 +31,7 @@ export const projects: Project[] = [
 		title: "Twitter Clone",
 		url: "/projects/twitter-clone",
 		image: TwitterClone,
-		techStack: ["nextjs", "prisma", "supabase", "typescript", "shadcn", "tailwindcss"],
+		techStack: ["nextjs", "prisma", "supabase", "tanstack-query", "typescript", "shadcn", "tailwindcss"],
 		github: "https://github.com/alihamasdev/twitter-clone",
 		live: "https://twitter-alihamas.vercel.app",
 		description:
@@ -41,7 +41,7 @@ export const projects: Project[] = [
 		title: "Chaty - Public Chat Room",
 		url: "/projects/chaty",
 		image: Chaty,
-		techStack: ["react", "firebase", "typescript", "tailwindcss"],
+		techStack: ["react", "firebase", "motion", "typescript", "tailwindcss"],
 		github: "https://github.com/alihamasdev/chaty",
 		live: "https://chaty-alihamas.vercel.app",
 		description:

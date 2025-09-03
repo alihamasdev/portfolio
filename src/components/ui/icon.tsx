@@ -23,7 +23,9 @@ const icons = [
 	"typescript",
 	"prisma",
 	"vercel",
-	"bun"
+	"bun",
+	"motion",
+	"tanstack-query"
 ] as const;
 
 type IconId = (typeof icons)[number];

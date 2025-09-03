@@ -31,12 +31,12 @@ export default function ProjectsPage() {
 							/>
 							<div className="mt-3 flex items-center gap-x-2">
 								{techStack.map((tech) => (
-									<Tooltip key={tech}>
+									<Tooltip key={tech} side="bottom">
 										<TooltipTrigger>
-											<Icon src={tech} className="size-5" />
+											<Icon src={tech} className="size-5.5 rounded-[5px]" />
 										</TooltipTrigger>
 										<TooltipContent arrow>
-											<span className="capitalize">{tech}</span>
+											<span className="capitalize">{tech.split("-").join(" ")}</span>
 										</TooltipContent>
 									</Tooltip>
 								))}
