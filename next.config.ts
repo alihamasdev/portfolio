@@ -4,10 +4,7 @@ import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 
 const nextConfig: NextConfig = {
-	pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
-	experimental: {
-		viewTransition: true
-	}
+	pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"]
 };
 
 const withMDX = createMDX({
