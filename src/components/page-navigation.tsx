@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import { blogs, pages, projects } from "@/data/pages-data";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { RippleButton } from "@/components/ui/button/ripple";
 
 interface NavItem {
@@ -14,6 +15,7 @@ interface NavItem {
 
 export function PageNavigation() {
 	const pathname = usePathname();
+	const isMobile = useIsMobile();
 
 	let navArray = pages;
 	let directory: "app" | "projects" | "blogs" = "app";
@@ -63,7 +65,7 @@ export function PageNavigation() {
 				<Link href={prevPage.url} prefetch={false}>
 					<RippleButton variant="outline">
 						<ChevronLeft />
-						{prevPage.title}
+						{isMobile && directory !== "app" ? "Previous" : prevPage.title}
 					</RippleButton>
 				</Link>
 			) : (
@@ -72,7 +74,7 @@ export function PageNavigation() {
 			{nextPage && (
 				<Link href={nextPage.url} prefetch={false}>
 					<RippleButton variant="outline">
-						{nextPage.title}
+						{isMobile && directory !== "app" ? "Next" : nextPage.title}
 						<ChevronRight />
 					</RippleButton>
 				</Link>

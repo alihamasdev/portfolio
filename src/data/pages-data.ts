@@ -31,21 +31,21 @@ export const projects: Project[] = [
 		title: "Twitter Clone",
 		url: "/projects/twitter-clone",
 		image: TwitterClone,
-		techStack: ["nextjs", "prisma", "supabase", "tailwindcss", "shadcn", "typescript"],
+		techStack: ["nextjs", "prisma", "supabase", "typescript", "shadcn", "tailwindcss"],
 		github: "https://github.com/alihamasdev/twitter-clone",
 		live: "https://twitter-alihamas.vercel.app",
 		description:
-			"Lorem ipsum odor amet, consectetuer adipiscing elit. Metus per pulvinar fames platea sollicitudin orci facilisi. Potenti varius pellentesque vel sed varius elit. Venenatis suspendisse odio, aliquam netus commodo dui. Nunc nec neque nunc molestie malesuada habitasse nibh? Porta habitasse euismod non egestas lobortis, vestibulum maecenas ut. Sagittis ut mus nec sollicitudin tellus lacus ad. Porttitor integer lacinia duis senectus litora."
+			"A social media platform allowing users to post, repost, like, comment, bookmark, and follow others, with profile customization, post deletion, and user search functionality."
 	},
 	{
 		title: "Chaty - Public Chat Room",
 		url: "/projects/chaty",
 		image: Chaty,
-		techStack: ["react", "firebase", "tailwindcss"],
+		techStack: ["react", "firebase", "typescript", "tailwindcss"],
 		github: "https://github.com/alihamasdev/chaty",
 		live: "https://chaty-alihamas.vercel.app",
 		description:
-			"Lorem ipsum odor amet, consectetuer adipiscing elit. Metus per pulvinar fames platea sollicitudin orci facilisi. Potenti varius pellentesque vel sed varius elit. Venenatis suspendisse odio, aliquam netus commodo dui. Nunc nec neque nunc molestie malesuada habitasse nibh? Porta habitasse euismod non egestas lobortis, vestibulum maecenas ut. Sagittis ut mus nec sollicitudin tellus lacus ad. Porttitor integer lacinia duis senectus litora."
+			"A real-time chat app with a single public room where authenticated users can create, edit, and delete messages, designed as a skill showcase with future one-on-one chat plans."
 	},
 	{
 		title: "Cricket Stats",
@@ -55,7 +55,7 @@ export const projects: Project[] = [
 		github: "https://github.com/alihamasdev/cricket-stats",
 		live: "https://stats-alihamas.vercel.app",
 		description:
-			"Lorem ipsum odor amet, consectetuer adipiscing elit. Metus per pulvinar fames platea sollicitudin orci facilisi. Potenti varius pellentesque vel sed varius elit. Venenatis suspendisse odio, aliquam netus commodo dui. Nunc nec neque nunc molestie malesuada habitasse nibh? Porta habitasse euismod non egestas lobortis, vestibulum maecenas ut. Sagittis ut mus nec sollicitudin tellus lacus ad. Porttitor integer lacinia duis senectus litora."
+			"A personal app to track cricket player stats (batting, bowling, fielding) with date filters, all-time stats, and player comparisons for family and friend matches."
 	},
 	{
 		title: "iTab - New Tab",
@@ -65,7 +65,7 @@ export const projects: Project[] = [
 		github: "https://github.com/alihamasdev/itab",
 		live: "https://itab-alihamas.vercel.app",
 		description:
-			"Lorem ipsum odor amet, consectetuer adipiscing elit. Metus per pulvinar fames platea sollicitudin orci facilisi. Potenti varius pellentesque vel sed varius elit. Venenatis suspendisse odio, aliquam netus commodo dui. Nunc nec neque nunc molestie malesuada habitasse nibh? Porta habitasse euismod non egestas lobortis, vestibulum maecenas ut. Sagittis ut mus nec sollicitudin tellus lacus ad. Porttitor integer lacinia duis senectus litora."
+			"A Chrome extension replacing the default new tab with a custom page featuring time, dynamic day greetings, a Google search bar, and editable shortcut links."
 	},
 	{
 		title: "Cricket Scorecard Generator",
@@ -75,17 +75,17 @@ export const projects: Project[] = [
 		github: "https://github.com/alihamasdev/scorecard-generator",
 		live: "https://scorecard-alihamas.vercel.app",
 		description:
-			"Lorem ipsum odor amet, consectetuer adipiscing elit. Metus per pulvinar fames platea sollicitudin orci facilisi. Potenti varius pellentesque vel sed varius elit. Venenatis suspendisse odio, aliquam netus commodo dui. Nunc nec neque nunc molestie malesuada habitasse nibh? Porta habitasse euismod non egestas lobortis, vestibulum maecenas ut. Sagittis ut mus nec sollicitudin tellus lacus ad. Porttitor integer lacinia duis senectus litora."
+			"A tool to manually generate ICC-style match scorecards for record-keeping, with ongoing work to integrate automatic stat generation from Cricket Stats"
 	},
 	{
 		title: "Image Cropper & Resizer",
 		url: "/projects/image-cropper",
 		image: ImageCropper,
-		techStack: ["nextjs", "typescript", "tailwindcss", "shadcn"],
+		techStack: ["nextjs", "typescript", "shadcn", "tailwindcss"],
 		github: "https://github.com/alihamasdev/image-cropper",
 		live: "https://cropper-alihamas.vercel.app",
 		description:
-			"Lorem ipsum odor amet, consectetuer adipiscing elit. Metus per pulvinar fames platea sollicitudin orci facilisi. Potenti varius pellentesque vel sed varius elit. Venenatis suspendisse odio, aliquam netus commodo dui. Nunc nec neque nunc molestie malesuada habitasse nibh? Porta habitasse euismod non egestas lobortis, vestibulum maecenas ut. Sagittis ut mus nec sollicitudin tellus lacus ad. Porttitor integer lacinia duis senectus litora."
+			"A tool for cropping images with custom aspect ratios, widths, heights, and format changes to meet specific resizing needs"
 	},
 	{
 		title: "ToDo App",
@@ -95,7 +95,7 @@ export const projects: Project[] = [
 		github: "https://github.com/alihamasdev/todo-app",
 		live: "https://todo-alihamas.vercel.app",
 		description:
-			"Lorem ipsum odor amet, consectetuer adipiscing elit. Metus per pulvinar fames platea sollicitudin orci facilisi. Potenti varius pellentesque vel sed varius elit. Venenatis suspendisse odio, aliquam netus commodo dui. Nunc nec neque nunc molestie malesuada habitasse nibh? Porta habitasse euismod non egestas lobortis, vestibulum maecenas ut. Sagittis ut mus nec sollicitudin tellus lacus ad. Porttitor integer lacinia duis senectus litora."
+			"A simple app for managing tasks with local storage, allowing users to add, edit, delete, and filter todos (all, completed, incomplete)"
 	}
 ];
 
