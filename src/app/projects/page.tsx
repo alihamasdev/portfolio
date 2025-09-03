@@ -33,7 +33,7 @@ export default function ProjectsPage() {
 								{techStack.map((tech) => (
 									<Tooltip key={tech}>
 										<TooltipTrigger>
-											<Icon src={tech} className="size-6" />
+											<Icon src={tech} className="size-5" />
 										</TooltipTrigger>
 										<TooltipContent arrow>
 											<span className="capitalize">{tech}</span>
