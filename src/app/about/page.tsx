@@ -9,7 +9,7 @@ function Link({ className, href, ...props }: React.ComponentProps<typeof NextLin
 		<NextLink
 			href={href}
 			target={href.toString().startsWith("/") ? "_self" : "_blank"}
-			className={cn("decoration-gradient text-accent-pink", className)}
+			className={cn("decoration-gradient text-accent-purple dark:text-accent-pink font-medium", className)}
 			{...props}
 		/>
 	);

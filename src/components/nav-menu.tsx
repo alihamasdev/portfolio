@@ -45,7 +45,7 @@ export function NavMenu() {
 							initial={{ y: "100%" }}
 							animate={{ y: 0, transition: { duration: 0.3 } }}
 							exit={{ y: "-100%", transition: { duration: 0.3, delay: 1.1 } }}
-							className="fixed inset-0 z-10 flex h-dvh w-full flex-col items-center justify-between bg-black/75 py-10 backdrop-blur-sm md:py-20"
+							className="fixed inset-0 z-10 flex h-dvh w-full flex-col items-center justify-between bg-black/50 py-10 backdrop-blur-sm md:py-20 dark:bg-black/75"
 						>
 							<div />
 							<ul className="flex flex-col gap-y-4">
@@ -60,7 +60,7 @@ export function NavMenu() {
 										<Link
 											href={url}
 											onClick={() => setOpen(false)}
-											className={cn("text-foreground text-lg font-semibold hover:[--scale-x:1] md:text-xl")}
+											className={cn("text-lg font-semibold text-white hover:[--scale-x:1] md:text-xl")}
 										>
 											{url === path ? (
 												<GradientText>{title}</GradientText>
@@ -85,7 +85,7 @@ export function NavMenu() {
 												animate={{ opacity: 1, y: 0, transition: { duration: 0.3, delay: index * 0.1 + 0.9 } }}
 												exit={{ opacity: 0, y: -70, transition: { duration: 0.3, delay: index * 0.1 + 0.5 } }}
 											>
-												<Icon src={icon} className="fill-foreground/80 group-hover:fill-foreground transition-colors" />
+												<Icon src={icon} className="fill-white/80 transition-colors group-hover:fill-white" />
 											</motion.a>
 										</TooltipTrigger>
 										<TooltipContent>{tooltip}</TooltipContent>
