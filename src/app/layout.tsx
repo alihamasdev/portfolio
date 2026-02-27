@@ -21,6 +21,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
+			<script async src="https://www.googletagmanager.com/gtag/js?id=G-LGPX5PTGCM"></script>
+			<script>
+  				window.dataLayer = window.dataLayer || [];
+  				function gtag(){dataLayer.push(arguments);}
+  				gtag('js', new Date());
+
+  				gtag('config', 'G-LGPX5PTGCM');
+			</script>
 			<body style={geistSans.style} className={`${geistSans.variable} ${geistMono.variable}`}>
 				<ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
 					<TooltipProvider>
