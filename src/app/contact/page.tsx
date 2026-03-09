@@ -1,3 +1,4 @@
+import { type Metadata } from "next";
 import Link from "next/link";
 
 import { socialLinks } from "@/data/social-links";
@@ -5,6 +6,11 @@ import { Icon } from "@/components/ui/icon";
 import { PageDescription, PageTitle } from "@/components/ui/page-header";
 import { MotionHighlight } from "@/components/motion-highlight";
 import { FadeUp } from "@/components/transitions";
+
+export const metadata: Metadata = {
+	title: "Contact",
+	description: "Get in touch with Ali Hamas for collaborations or inquiries."
+};
 
 export default function ContactPage() {
 	return (

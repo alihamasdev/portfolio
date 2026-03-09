@@ -1,8 +1,15 @@
+import { type Metadata } from "next";
 import NextLink from "next/link";
 
 import { cn } from "@/lib/utils";
 import { PageTitle } from "@/components/ui/page-header";
 import { FadeUp } from "@/components/transitions";
+
+export const metadata: Metadata = {
+	title: "About",
+	description:
+		"Hi, I'm Ali Hamas, a self-taught developer pursuing full-stack development. Learn more about my journey and skills."
+};
 
 function Link({ className, href, ...props }: React.ComponentProps<typeof NextLink>) {
 	return (
