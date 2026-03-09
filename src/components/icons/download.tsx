@@ -3,7 +3,7 @@
 import * as React from "react";
 import { motion, type Variants } from "motion/react";
 
-import { getVariants, useAnimateIconContext, IconWrapper, type IconProps } from "@/components/icons/icon";
+import { getVariants, IconWrapper, useAnimateIconContext, type IconProps } from "@/components/icons/icon";
 
 type DownloadProps = IconProps<keyof typeof animations>;
 
