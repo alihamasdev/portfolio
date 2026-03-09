@@ -15,18 +15,19 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	title: "Developer Portfolio | Ali Hamas",
-	description: "Portfolio website to showcase web development projects"
+	title: {
+		default: "Developer Portfolio | Ali Hamas",
+		template: "%s | Ali Hamas"
+	},
+	description:
+		"A self-taught developer creating stunning user experiences on the front-end and scalable infrastructure on the back-end."
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body>
-				<Script
-					src="https://www.googletagmanager.com/gtag/js?id=G-LGPX5PTGCM"
-					strategy="afterInteractive"
-				/>
+				<Script src="https://www.googletagmanager.com/gtag/js?id=G-LGPX5PTGCM" strategy="afterInteractive" />
 				<Script id="google-analytics" strategy="afterInteractive">
 					{`
 						window.dataLayer = window.dataLayer || [];
@@ -37,10 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				</Script>
 
 				<ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
-					<div 
-						style={geistSans.style} 
-						className={`${geistSans.variable} ${geistMono.variable}`}
-					>
+					<div style={geistSans.style} className={`${geistSans.variable} ${geistMono.variable}`}>
 						<TooltipProvider>
 							<NavMenu />
 							<main className="mx-auto flex min-h-[calc(100dvh-70px)] w-full max-w-6xl flex-col px-4 md:px-0">
