@@ -16,7 +16,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 			const isCodeBlock = !!className;
 
 			if (!isCodeBlock) {
-				return <code className="font-mono bg-muted rounded px-1 text-sm font-medium py-px">{children}</code>;
+				return <code className="bg-muted rounded px-1 py-px font-mono text-sm font-medium">{children}</code>;
 			}
 
 			return (

@@ -1,3 +1,4 @@
+import { type Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,6 +8,11 @@ import { PageDescription, PageTitle } from "@/components/ui/page-header";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { MotionHighlight } from "@/components/motion-highlight";
 import { FadeUp } from "@/components/transitions";
+
+export const metadata: Metadata = {
+	title: "Projects",
+	description: "Explore the portfolio of Ali Hamas, featuring work in React, Next.js, and full-stack development."
+};
 
 export default function ProjectsPage() {
 	return (

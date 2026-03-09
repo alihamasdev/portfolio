@@ -52,8 +52,7 @@ interface AnimateIconProps<T = string> extends DefaultIconProps<T> {
 }
 
 interface IconProps<T>
-	extends DefaultIconProps<T>,
-		Omit<SVGMotionProps<SVGSVGElement>, "animate" | "onAnimationStart" | "onAnimationEnd"> {
+	extends DefaultIconProps<T>, Omit<SVGMotionProps<SVGSVGElement>, "animate" | "onAnimationStart" | "onAnimationEnd"> {
 	size?: number;
 }
 
