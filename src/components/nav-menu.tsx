@@ -24,6 +24,7 @@ export function NavMenu() {
 		<Fragment>
 			<header className="fixed top-5 right-5 z-20 md:top-10 md:right-10">
 				<motion.button
+					aria-label="Toggle menu"
 					whileTap={{ scale: 0.9 }}
 					initial={{ opacity: 0, scale: 0 }}
 					animate={{ opacity: 1, scale: 1, transition: { duration: 0.3 } }}
@@ -78,6 +79,7 @@ export function NavMenu() {
 											<motion.a
 												href={link}
 												target="_blank"
+												aria-label={name}
 												className="group"
 												rel="noopener noreferrer"
 												onClick={() => setOpen(false)}

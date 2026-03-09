@@ -15,11 +15,43 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	metadataBase: new URL("https://portfolio-alihamas.vercel.app"),
+	metadataBase: new URL("https://alihamas.pk"),
 	title: {
-		default: "Developer Portfolio | Ali Hamas",
+		default: "Ali Hamas | Frontend Developer Portfolio",
 		template: "%s | Ali Hamas"
 	},
+	description:
+		"A self-taught developer creating stunning user experiences on the front-end and scalable infrastructure on the back-end.",
+	keywords: ["Ali Hamas", "Frontend Developer", "Portfolio", "React Developer", "Next.js", "Web Developer"],
+	authors: [{ name: "Ali Hamas", url: "https://alihamas.pk" }],
+	creator: "Ali Hamas",
+	openGraph: {
+		type: "website",
+		locale: "en_US",
+		url: "https://alihamas.pk",
+		title: "Ali Hamas | Frontend Developer Portfolio",
+		description:
+			"A self-taught developer creating stunning user experiences on the front-end and scalable infrastructure on the back-end.",
+		siteName: "Ali Hamas Portfolio"
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Ali Hamas | Frontend Developer Portfolio",
+		description: "A self-taught developer creating stunning user experiences on the front-end and scalable infrastructure on the back-end.",
+		creator: "@alihamasdev"
+	},
+	alternates: {
+		canonical: "/"
+	}
+};
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	name: "Ali Hamas",
+	url: "https://alihamas.pk",
+	jobTitle: "Frontend Developer",
+	sameAs: ["https://github.com/alihamasdev", "https://linkedin.com/in/alihamasdev", "https://twitter.com/alihamasdev"],
 	description:
 		"A self-taught developer creating stunning user experiences on the front-end and scalable infrastructure on the back-end."
 };
@@ -27,6 +59,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
+			<head>
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+				/>
+			</head>
 			<body>
 				<Script src="https://www.googletagmanager.com/gtag/js?id=G-LGPX5PTGCM" strategy="afterInteractive" />
 				<Script id="google-analytics" strategy="afterInteractive">
