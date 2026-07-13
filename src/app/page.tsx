@@ -32,7 +32,7 @@ export default function HomePage() {
 								<GradientText> Ali Hamas</GradientText>
 								<span> - </span>
 							</div>
-							<span>Frontend Developer</span>
+							<span>FullStack Developer</span>
 						</h1>
 					</FadeUp>
 					<FadeUp transition={{ delay: 0.6 }} className="mt-1 md:mt-2">
