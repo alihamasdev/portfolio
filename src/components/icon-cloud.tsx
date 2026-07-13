@@ -74,7 +74,10 @@ const skills = [
 	"shadcnui",
 	"nodedotjs",
 	"bun",
-	"npm"
+	"npm",
+	"express",
+	"cloudflare",
+	"docker",
 ];
 
 export function IconCloud({ ...props }: HTMLMotionProps<"div">) {
