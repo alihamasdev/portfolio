@@ -1,118 +1,121 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+@layer base {
+	html {
+		scroll-behavior: smooth;
+		font-size: 14px;
+
+		@media (width > 480px) {
+			font-size: 16px;
+		}
+	}
+
+	img {
+		-webkit-user-drag: none;
+	}
+
+	button,
+	input:where([type="button"], [type="reset"], [type="submit"]),
+	::file-selector-button {
+		cursor: pointer;
+	}
+
+	a[target="_blank"] {
+		cursor: alias;
+	}
+
+	strong {
+		font-weight: 600;
+	}
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+	--font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	--font-newsreader: var(--font-newsreader), Georgia, Cambria, "Times New Roman", Times, serif;
+}
 
 @theme inline {
-	--color-background: var(--background);
-	--color-foreground: var(--foreground);
-	--font-sans: var(--font-geist-sans);
-	--font-mono: var(--font-geist-mono);
-	--color-ring: var(--ring);
-	--color-input: var(--input);
-	--color-border: var(--border);
-	--color-destructive: var(--destructive);
-	--color-accent: var(--accent);
-	--color-accent-purple: oklch(62.684% 0.23265 303.896);
-	--color-accent-blue: oklch(62.31% 0.1881 259.83);
-	--color-accent-pink: oklch(64.984% 0.14575 16.174);
-	--color-accent-foreground: var(--accent-foreground);
-	--color-muted-foreground: var(--muted-foreground);
+	--color-bg: var(--bg);
+	--color-surface: var(--surface);
+	--color-fg: var(--fg);
 	--color-muted: var(--muted);
-	--color-secondary-foreground: var(--secondary-foreground);
-	--color-secondary: var(--secondary);
-	--color-primary-foreground: var(--primary-foreground);
-	--color-primary: var(--primary);
-	--color-popover-foreground: var(--popover-foreground);
-	--color-popover: var(--popover);
-	--color-card-foreground: var(--card-foreground);
-	--color-card: var(--card);
-}
-
-:root {
-	--background: oklch(1 0 0);
-	--foreground: oklch(0.141 0.005 285.823);
-	--card: oklch(1 0 0);
-	--card-foreground: oklch(0.141 0.005 285.823);
-	--popover: oklch(1 0 0);
-	--popover-foreground: oklch(0.141 0.005 285.823);
-	--primary: oklch(0.21 0.006 285.885);
-	--primary-foreground: oklch(0.985 0 0);
-	--secondary: oklch(0.967 0.001 286.375);
-	--secondary-foreground: oklch(0.21 0.006 285.885);
-	--muted: oklch(0.967 0.001 286.375);
-	--muted-foreground: oklch(0.552 0.016 285.938);
-	--accent: oklch(0.967 0.001 286.375);
-	--accent-foreground: oklch(0.21 0.006 285.885);
-	--destructive: oklch(0.577 0.245 27.325);
-	--border: oklch(0.92 0.004 286.32);
-	--input: oklch(0.92 0.004 286.32);
-	--ring: oklch(0.705 0.015 286.067);
-
-	--scale-x: 0;
-	--gradient: linear-gradient(to right, theme(--color-accent-purple), theme(--color-accent-pink));
-}
-
-.dark {
-	--background: oklch(0% 0 0);
-	--foreground: oklch(0.985 0 0);
-	--card: oklch(0.21 0.006 285.885);
-	--card-foreground: oklch(0.985 0 0);
-	--popover: oklch(0.21 0.006 285.885);
-	--popover-foreground: oklch(0.985 0 0);
-	--primary: oklch(0.92 0.004 286.32);
-	--primary-foreground: oklch(0.21 0.006 285.885);
-	--secondary: oklch(0.274 0.006 286.033);
-	--secondary-foreground: oklch(0.985 0 0);
-	--muted: oklch(0.274 0.006 286.033);
-	--muted-foreground: oklch(0.705 0.015 286.067);
-	--accent: oklch(0.274 0.006 286.033);
-	--accent-foreground: oklch(0.985 0 0);
-	--destructive: oklch(0.704 0.191 22.216);
-	--border: oklch(1 0 0 / 10%);
-	--input: oklch(1 0 0 / 15%);
-	--ring: oklch(0.552 0.016 285.938);
+	--color-border: var(--border);
 }
 
 @layer base {
-	* {
-		@apply border-border outline-ring/50;
+	:root {
+		color-scheme: light;
+		--bg: var(--color-stone-50);
+		--surface: #ffffff;
+		--fg: var(--color-stone-800);
+		--muted: var(--color-stone-500);
+		--border: rgba(28, 25, 23, 0.1);
 	}
-	body {
-		@apply bg-background text-foreground antialiased;
-	}
-	html {
-		@apply scroll-smooth;
+
+	.dark {
+		color-scheme: dark;
+		--bg: hsl(24 5% 10%);
+		--surface: hsl(24 5% 15%);
+		--fg: var(--color-stone-100);
+		--muted: var(--color-stone-400);
+		--border: rgba(245, 245, 244, 0.1);
 	}
 }
 
 @layer components {
-	.decoration-gradient {
-		@apply relative cursor-pointer transition-colors before:absolute before:-bottom-1 before:left-0 before:h-[3px] before:w-full before:origin-left before:scale-x-(--scale-x) before:rounded-full before:[background-image:var(--gradient)] before:transition-transform before:duration-200 hover:before:scale-x-100;
+	.section {
+		width: 100%;
+		max-width: min(calc(100vw - 4rem), 40rem);
 	}
-	.prose h1 {
-		@apply my-3 text-3xl font-extrabold md:text-3xl;
+
+	.bold-icon path {
+		stroke-width: 2px;
 	}
-	.prose h2 {
-		@apply my-3 text-xl font-bold md:text-2xl;
+
+	.squircle {
+		border-radius: var(--radius-2xl, 1.5rem);
+
+		@supports (corner-shape: squircle) {
+			corner-shape: squircle;
+			border-radius: 3rem;
+		}
 	}
-	.prose h3 {
-		@apply my-3 text-xl font-bold md:text-2xl;
+
+	.squircle-sm {
+		border-radius: var(--radius-xl, 1rem);
+
+		@supports (corner-shape: squircle) {
+			corner-shape: squircle;
+			border-radius: 2rem;
+		}
 	}
-	.prose p {
-		@apply text-sm/6 md:text-base/7;
+
+	.wave {
+		border: 0;
+		height: 8px;
+		width: 100%;
+		background-color: var(--border);
+		-webkit-mask: var(--wave) repeat-x center / 22px 8px;
+		mask: var(--wave) repeat-x center / 22px 8px;
+		--wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='8' viewBox='0 0 22 8'%3E%3Cpath d='M0 7 L11 1 L22 7' fill='none' stroke='currentColor' stroke-width='1' stroke-linecap='round'/%3E%3C/svg%3E");
 	}
-	.prose hr {
-		@apply my-5 border-t;
+}
+
+main {
+	animation: appear 0.5s ease-out;
+
+	@media (prefers-reduced-motion: reduce) {
+		animation: none;
 	}
-	.prose ul,
-	.prose ol {
-		@apply my-3 list-inside;
+}
+
+@keyframes appear {
+	from {
+		opacity: 0;
 	}
-	.prose ul li {
-		@apply list-disc;
-	}
-	.prose ol li {
-		@apply list-decimal marker:mr-1;
+	to {
+		opacity: 1;
 	}
 }
