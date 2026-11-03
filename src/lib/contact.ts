@@ -1,6 +1,6 @@
 export const CONTACT = {
 	name: "Ali Hamas",
-	role: "Frontend Engineer",
+	role: "Full Stack Engineer",
 	location: "Lahore, Pakistan",
 	email: "alihamasdev@gmail.com",
 	linkedin: "https://linkedin.com/in/alihamasdev",

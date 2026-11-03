@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 	metadataBase: new URL(CONTACT.siteUrl),
 	title: `${CONTACT.name} · ${CONTACT.role}`,
 	description: `${CONTACT.name}, ${CONTACT.role} based in ${CONTACT.location}. Specializing in payment infrastructure, component systems, and resilient web applications.`,
-	keywords: ["Ali Hamas", "Frontend Engineer", "React Developer", "Next.js", "TypeScript", "Safepay", "Fintech", "Lahore", "Pakistan"],
+	keywords: ["Ali Hamas", "Full Stack Engineer", "React Developer", "Next.js", "TypeScript", "Safepay", "Fintech", "Lahore", "Pakistan"],
 	authors: [{ name: CONTACT.name, url: CONTACT.siteUrl }],
 	creator: CONTACT.name,
 };

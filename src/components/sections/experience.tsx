@@ -20,7 +20,7 @@ type ExperienceItem = {
 const experiences: ExperienceItem[] = [
 	{
 		name: "Rankpilot",
-		roles: [{ role: "Frontend / Full-Stack Developer", period: "2024 - Present · Remote" }],
+		roles: [{ role: "Full-Stack Developer", period: "2025 - Present · Remote" }],
 		bullets: [
 			{
 				text: "Built customer-facing dashboard and rich-text editing workflows using React, TanStack Query, and Tiptap, cutting content production friction.",
@@ -83,14 +83,11 @@ export function Experience() {
 									{bullet.tooltip ? (
 										<span
 											tabIndex={0}
-											className="tooltip-trigger group relative inline cursor-help underline decoration-fg/25 decoration-dashed underline-offset-4 focus:outline-none"
+											className="t-tt-trigger group relative inline cursor-help underline decoration-fg/25 decoration-dashed underline-offset-4 focus:outline-none"
 										>
 											{bullet.text}
-											<span
-												role="tooltip"
-												className="tooltip squircle pointer-events-none absolute bottom-[calc(100%+8px)] left-0 z-30 hidden w-max max-w-xs rounded-xl bg-stone-900 px-3 py-2 text-xs leading-snug text-stone-100 shadow-xl group-hover:block group-focus-visible:block dark:border dark:border-stone-800 dark:bg-stone-950"
-											>
-												{bullet.tooltip}
+											<span role="tooltip" className="t-tt squircle">
+												<span className="t-tt-text leading-snug">{bullet.tooltip}</span>
 											</span>
 										</span>
 									) : (

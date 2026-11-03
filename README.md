@@ -1,6 +1,6 @@
-# Ali Hamas · Frontend Engineer Portfolio (v2)
+# Ali Hamas · Full Stack Engineer Portfolio (v2)
 
-Personal portfolio of **Ali Hamas**, Frontend Engineer based in Lahore, Pakistan. Built with Next.js App Router, React 19, TypeScript, and Tailwind CSS v4.
+Personal portfolio of **Ali Hamas**, Full Stack Engineer based in Lahore, Pakistan. Built with Next.js App Router, React 19, TypeScript, and Tailwind CSS v4.
 
 ## Tech Stack
 

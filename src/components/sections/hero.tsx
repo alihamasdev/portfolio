@@ -37,7 +37,7 @@ export function Hero() {
 					target="_blank"
 					rel="noopener noreferrer"
 					aria-label="GitHub Profile"
-					className="squircle flex size-10 items-center justify-center bg-fg/4 text-muted ring-1 ring-border/50 transition-all hover:bg-fg/8 hover:text-fg active:scale-95"
+					className="squircle flex size-10 items-center justify-center bg-fg/4 text-muted ring-1 ring-border/50 transition-[background-color,color,transform] duration-150 ease-spring hover:bg-fg/8 hover:text-fg active:scale-[0.97]"
 				>
 					<GithubIcon className="size-4" />
 				</a>
@@ -47,7 +47,7 @@ export function Hero() {
 					target="_blank"
 					rel="noopener noreferrer"
 					aria-label="LinkedIn Profile"
-					className="squircle flex size-10 items-center justify-center bg-fg/4 text-muted ring-1 ring-border/50 transition-all hover:bg-fg/8 hover:text-fg active:scale-95"
+					className="squircle flex size-10 items-center justify-center bg-fg/4 text-muted ring-1 ring-border/50 transition-[background-color,color,transform] duration-150 ease-spring hover:bg-fg/8 hover:text-fg active:scale-[0.97]"
 				>
 					<LinkedinIcon className="size-4" />
 				</a>
@@ -57,7 +57,7 @@ export function Hero() {
 					target="_blank"
 					rel="noopener noreferrer"
 					aria-label="X Profile"
-					className="squircle flex size-10 items-center justify-center bg-fg/4 text-muted ring-1 ring-border/50 transition-all hover:bg-fg/8 hover:text-fg active:scale-95"
+					className="squircle flex size-10 items-center justify-center bg-fg/4 text-muted ring-1 ring-border/50 transition-[background-color,color,transform] duration-150 ease-spring hover:bg-fg/8 hover:text-fg active:scale-[0.97]"
 				>
 					<XIcon className="size-4" />
 				</a>
@@ -67,7 +67,7 @@ export function Hero() {
 					target="_blank"
 					rel="noopener noreferrer"
 					aria-label="Download Resume PDF"
-					className="squircle flex h-10 items-center gap-2 bg-fg/4 px-3.5 py-2.5 text-xs font-semibold text-muted ring-1 ring-border/50 transition-all hover:bg-fg/8 hover:text-fg active:scale-95"
+					className="squircle flex h-10 items-center gap-2 bg-fg/4 px-3.5 py-2.5 text-xs font-semibold text-muted ring-1 ring-border/50 transition-[background-color,color,transform] duration-150 ease-spring hover:bg-fg/8 hover:text-fg active:scale-[0.97]"
 				>
 					<FileText className="size-4" />
 					<span>Resume</span>

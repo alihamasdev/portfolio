@@ -1,6 +1,5 @@
 "use client";
 
-import { cn } from "cn";
 import { Check, Copy } from "lucide-react";
 import { useState } from "react";
 
@@ -26,26 +25,24 @@ export function CopyEmailButton() {
 			type="button"
 			onClick={handleCopy}
 			aria-label={copied ? "Email copied to clipboard" : "Copy email address"}
-			className="squircle group relative flex items-center justify-center gap-2 bg-fg px-4 py-2.5 text-sm font-medium text-bg shadow-sm transition-all hover:bg-fg/90 active:scale-95"
+			className="squircle group relative flex items-center justify-center gap-2 overflow-hidden bg-fg px-4 py-2.5 text-sm font-medium text-bg shadow-sm transition-[background-color,transform] duration-150 ease-spring hover:bg-fg/90 active:scale-[0.98]"
 		>
-			<span
-				className={cn(
-					"flex items-center gap-2 transition-all duration-300",
-					copied ? "pointer-events-none scale-95 opacity-0 blur-xs" : "scale-100 opacity-100 blur-none",
-				)}
-			>
-				<Copy className="size-4 opacity-80" />
-				Copy my email
+			<span className="t-icon-swap" data-state={copied ? "b" : "a"}>
+				<span className="t-icon" data-icon="a">
+					<Copy className="size-4 opacity-80" />
+				</span>
+				<span className="t-icon" data-icon="b">
+					<Check className="size-4 text-emerald-400" />
+				</span>
 			</span>
-			<span
-				aria-hidden={!copied}
-				className={cn(
-					"absolute flex items-center gap-2 transition-all duration-300",
-					copied ? "scale-100 opacity-100 blur-none" : "pointer-events-none scale-95 opacity-0 blur-xs",
-				)}
-			>
-				<Check className="size-4 text-emerald-400" />
-				Email copied!
+
+			<span className="t-text-swap" data-state={copied ? "b" : "a"}>
+				<span data-text="a" aria-hidden={copied}>
+					Copy my email
+				</span>
+				<span data-text="b" aria-hidden={!copied}>
+					Email copied!
+				</span>
 			</span>
 		</button>
 	);
