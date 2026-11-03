@@ -2,20 +2,19 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
 	return {
-		name: "Ali Hamas | Frontend Developer Portfolio",
+		name: "Ali Hamas · Frontend Engineer",
 		short_name: "Ali Hamas",
-		description:
-			"A self-taught developer creating stunning user experiences on the front-end and scalable infrastructure on the back-end.",
+		description: "Frontend Engineer specializing in payment infrastructure, component systems, and resilient web applications.",
 		start_url: "/",
 		display: "standalone",
-		background_color: "#000000",
-		theme_color: "#000000",
+		background_color: "#fafaf9",
+		theme_color: "#fafaf9",
 		icons: [
 			{
-				src: "/favicon.ico",
+				src: "/me.webp",
 				sizes: "any",
-				type: "image/x-icon"
-			}
-		]
+				type: "image/webp",
+			},
+		],
 	};
 }

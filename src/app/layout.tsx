@@ -1,104 +1,44 @@
 import { type Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
+import { Inter, Newsreader } from "next/font/google";
 
-import { ThemeProvider } from "@/lib/theme-provider";
-import { Toaster } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { NavMenu } from "@/components/nav-menu";
-import { PageNavigation } from "@/components/page-navigation";
-import { ThemeToggler } from "@/components/theme-toggler";
-
+import { BlurGradient } from "@/components/blur-gradient";
+import { Footer } from "@/components/footer";
+import { Menu } from "@/components/menu";
+import { CONTACT } from "@/lib/contact";
 import "@/styles/globals.css";
+import { ThemeProvider } from "@/lib/theme-provider";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+const inter = Inter({
+	subsets: ["latin"],
+	variable: "--font-inter",
+	display: "swap",
+});
+
+const newsreader = Newsreader({
+	subsets: ["latin"],
+	style: ["normal", "italic"],
+	variable: "--font-newsreader",
+	display: "swap",
+});
 
 export const metadata: Metadata = {
-	metadataBase: new URL("https://alihamas.pk"),
-	title: {
-		default: "Ali Hamas | Frontend Developer Portfolio",
-		template: "%s | Ali Hamas"
-	},
-	description:
-		"A self-taught developer creating stunning user experiences on the front-end and scalable infrastructure on the back-end.",
-	keywords: ["Ali Hamas", "Frontend Developer", "Portfolio", "React Developer", "Next.js", "Web Developer"],
-	authors: [{ name: "Ali Hamas", url: "https://alihamas.pk" }],
-	creator: "Ali Hamas",
-	openGraph: {
-		type: "website",
-		locale: "en_US",
-		url: "https://alihamas.pk",
-		title: "Ali Hamas | Frontend Developer Portfolio",
-		description:
-			"A self-taught developer creating stunning user experiences on the front-end and scalable infrastructure on the back-end.",
-		siteName: "Ali Hamas Portfolio"
-	},
-	twitter: {
-		card: "summary_large_image",
-		title: "Ali Hamas | Frontend Developer Portfolio",
-		description: "A self-taught developer creating stunning user experiences on the front-end and scalable infrastructure on the back-end.",
-		creator: "@alihamasdev"
-	},
-	alternates: {
-		canonical: "/"
-	}
-};
-
-const jsonLd = {
-	"@context": "https://schema.org",
-	"@type": "Person",
-	name: "Ali Hamas",
-	url: "https://alihamas.pk",
-	jobTitle: "Frontend Developer",
-	sameAs: ["https://github.com/alihamasdev", "https://linkedin.com/in/alihamasdev", "https://twitter.com/alihamasdev"],
-	description:
-		"A self-taught developer creating stunning user experiences on the front-end and scalable infrastructure on the back-end."
+	metadataBase: new URL(CONTACT.siteUrl),
+	title: `${CONTACT.name} · ${CONTACT.role}`,
+	description: `${CONTACT.name}, ${CONTACT.role} based in ${CONTACT.location}. Specializing in payment infrastructure, component systems, and resilient web applications.`,
+	keywords: ["Ali Hamas", "Frontend Engineer", "React Developer", "Next.js", "TypeScript", "Safepay", "Fintech", "Lahore", "Pakistan"],
+	authors: [{ name: CONTACT.name, url: CONTACT.siteUrl }],
+	creator: CONTACT.name,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
-			<head>
-				<script
-					type="application/ld+json"
-					dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-				/>
-			</head>
-			<body>
-				<Script src="https://www.googletagmanager.com/gtag/js?id=G-LGPX5PTGCM" strategy="afterInteractive" />
-				<Script id="google-analytics" strategy="afterInteractive">
-					{`
-						window.dataLayer = window.dataLayer || [];
-						function gtag(){dataLayer.push(arguments);}
-						gtag('js', new Date());
-						gtag('config', 'G-LGPX5PTGCM');
-					`}
-				</Script>
-
-				<ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
-					<div style={geistSans.style} className={`${geistSans.variable} ${geistMono.variable}`}>
-						<TooltipProvider>
-							<NavMenu />
-							<main className="mx-auto flex min-h-[calc(100dvh-70px)] w-full max-w-6xl flex-col px-4 md:px-0">
-								{children}
-								<PageNavigation />
-							</main>
-							<footer className="border-t py-5">
-								<div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 md:px-0">
-									<p className="text-muted-foreground text-xs md:text-sm">
-										&#169; 2025{" "}
-										<a href="https://github.com/alihamasdev" target="_blank" className="decoration-gradient">
-											Ali Hamas
-										</a>
-										, Inc.
-									</p>
-									<ThemeToggler />
-								</div>
-							</footer>
-							<Toaster position="bottom-right" duration={4000} />
-						</TooltipProvider>
-					</div>
+		<html lang="en" suppressHydrationWarning className={`${inter.variable} ${newsreader.variable}`}>
+			<body className="flex min-h-dvh cursor-default flex-col items-center bg-bg pt-28 font-sans font-medium text-fg antialiased selection:bg-fg/10 sm:pt-36">
+				<ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+					<Menu />
+					<BlurGradient />
+					<main className="flex w-full max-w-[min(calc(100vw-4rem),40rem)] flex-col px-2">{children}</main>
+					<Footer />
 				</ThemeProvider>
 			</body>
 		</html>
