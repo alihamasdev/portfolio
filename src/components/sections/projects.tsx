@@ -8,8 +8,8 @@ type Project = {
 	tagline: string;
 	description: string;
 	badge: string;
-	liveUrl?: string;
-	repoUrl: string;
+	liveUrl?: `https://${string}.alihamas.pk`;
+	repoUrl: `https://github.com/alihamasdev/${string}`;
 	tech: string[];
 	icon: React.ReactNode;
 };
@@ -17,16 +17,16 @@ type Project = {
 const projects: Project[] = [
 	{
 		title: "Safepay Docs",
-		tagline: "Developer Portal & API Explorer",
+		tagline: "Documentation & API Explorer",
 		description:
-			"Interactive developer documentation, Model Context Protocol (MCP) server, and API explorer engine built specifically for Safepay's OpenAPI spec.",
-		badge: "Live Portal",
+			"Interactive AI ready developer documentation, Model Context Protocol (MCP) server and API explorer engine built specifically for Safepay's OpenAPI spec.",
+		badge: "Documentation",
 		liveUrl: "https://safepay.alihamas.pk",
 		repoUrl: "https://github.com/alihamasdev/safepay-docs",
-		tech: ["Next.js", "Fumadocs", "OpenAPI", "TypeScript"],
+		tech: ["Next.js", "TypeScript", "OpenAPI"],
 		icon: (
-			<div className="flex size-14 items-center justify-center rounded-2xl bg-stone-900 text-stone-100 shadow-md dark:bg-stone-100 dark:text-stone-900">
-				<SafepayLogo className="h-6 w-auto max-w-[85%]" />
+			<div className="flex size-14 items-center justify-center rounded-2xl bg-[#183b8c]/10 text-[#183b8c] shadow-md dark:bg-blue-500/15 dark:text-blue-400">
+				<SafepayLogo className="size-7" />
 			</div>
 		),
 	},
@@ -34,13 +34,13 @@ const projects: Project[] = [
 		title: "Zyvorn",
 		tagline: "E-Commerce & Checkout UX",
 		description:
-			"Production-grade e-commerce application featuring seamless multi-step checkout flows, cart state management, and merchant inventory tools.",
+			"Production-grade e-commerce application featuring seamless checkout flow, cart state management, and merchant inventory tools.",
 		badge: "Live Store",
-		liveUrl: "https://zyvorn.pk",
+		liveUrl: "https://zyvorn.alihamas.pk",
 		repoUrl: "https://github.com/alihamasdev/zyvorn.pk",
-		tech: ["Next.js", "React 19", "Tailwind CSS", "TypeScript"],
+		tech: ["Next.js", "Convex", "Turborepo", "TypeScript", "Tailwind CSS"],
 		icon: (
-			<div className="flex size-14 items-center justify-center rounded-2xl bg-amber-500/10 text-amber-600 shadow-md ring-1 ring-amber-500/20 dark:text-amber-400">
+			<div className="flex size-14 items-center justify-center rounded-2xl bg-amber-500/10 text-amber-600 shadow-md dark:text-amber-400">
 				<ZyvornLogo className="size-7" />
 			</div>
 		),
@@ -48,13 +48,12 @@ const projects: Project[] = [
 	{
 		title: "RawaPay",
 		tagline: "Pakistani Payment Rail SDK",
-		description:
-			"Unified Node.js & TypeScript SDK for Pakistani payment gateways (JazzCash & Easypaisa) with HMAC signature validation and runtime Zod schemas.",
+		description: "Unified Node.js & TypeScript SDK for Pakistani payment gateways (JazzCash & Easypaisa) with HMAC signature validation.",
 		badge: "Open Source SDK",
 		repoUrl: "https://github.com/alihamasdev/rawapay",
-		tech: ["TypeScript", "Zod", "HMAC-SHA256", "Bun"],
+		tech: ["TypeScript", "HMAC-SHA256", "Turborepo"],
 		icon: (
-			<div className="flex size-14 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-600 shadow-md ring-1 ring-blue-500/20 dark:text-blue-400">
+			<div className="flex size-14 items-center justify-center rounded-2xl bg-emerald-500/10 text-emerald-600 shadow-md dark:text-emerald-400">
 				<RawaPayLogo className="size-7" />
 			</div>
 		),
@@ -64,8 +63,8 @@ const projects: Project[] = [
 export function Projects() {
 	return (
 		<section id="projects" className="section flex scroll-mt-24 flex-col gap-8">
-			<div className="flex items-center gap-2.5">
-				<FolderGit2 className="size-5 stroke-[2.2px] text-fg" />
+			<div className="flex items-center gap-3">
+				<FolderGit2 className="size-5 text-fg" strokeWidth={2} />
 				<h2 className="text-xl font-semibold tracking-tight text-fg">Featured Projects</h2>
 			</div>
 

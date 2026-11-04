@@ -340,7 +340,7 @@
 
 	/* Menu entrance animation (from colinlienard.com) */
 	.menu-intro {
-		--menu-avatar-width: 56px;
+		--menu-avatar-width: 52px;
 		animation: menu-intro-expand 0.65s 0.2s cubic-bezier(0.22, 1, 0.36, 1) backwards;
 	}
 
@@ -352,15 +352,17 @@
 		0% {
 			transform: scale(0.6);
 			opacity: 0;
-			max-width: var(--menu-avatar-width);
+			width: var(--menu-avatar-width);
+			pointer-events: none;
 		}
 		45% {
 			transform: scale(1);
 			opacity: 1;
-			max-width: var(--menu-avatar-width);
+			width: var(--menu-avatar-width);
 		}
 		100% {
-			max-width: 20rem; /* max-w-xs (320px) */
+			width: 20rem; /* max-w-xs (320px) */
+			pointer-events: none;
 		}
 	}
 
@@ -380,6 +382,50 @@
 	@media (prefers-reduced-motion: reduce) {
 		.menu-intro,
 		.menu-status-intro {
+			animation: none !important;
+		}
+	}
+
+	/* MenuStatus ticker transitions (Crossfade with Fly & Blur) */
+	.menu-status-item-enter {
+		animation: status-enter 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+		will-change: transform, opacity, filter;
+	}
+
+	.menu-status-item-exit {
+		animation: status-exit 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+		will-change: transform, opacity, filter;
+	}
+
+	@keyframes status-enter {
+		0% {
+			transform: translateY(8px);
+			opacity: 0;
+			filter: blur(2px);
+		}
+		100% {
+			transform: translateY(0);
+			opacity: 1;
+			filter: blur(0);
+		}
+	}
+
+	@keyframes status-exit {
+		0% {
+			transform: translateY(0);
+			opacity: 1;
+			filter: blur(0);
+		}
+		100% {
+			transform: translateY(-8px);
+			opacity: 0;
+			filter: blur(2px);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.menu-status-item-enter,
+		.menu-status-item-exit {
 			animation: none !important;
 		}
 	}

@@ -20,7 +20,7 @@ type ExperienceItem = {
 const experiences: ExperienceItem[] = [
 	{
 		name: "Rankpilot",
-		roles: [{ role: "Full-Stack Developer", period: "2025 - Present · Remote" }],
+		roles: [{ role: "Full-Stack Developer", period: "May 2025 - Jul 2026 · Remote" }],
 		bullets: [
 			{
 				text: "Built customer-facing dashboard and rich-text editing workflows using React, TanStack Query, and Tiptap, cutting content production friction.",
@@ -37,11 +37,11 @@ const experiences: ExperienceItem[] = [
 				tooltip: "Achieved sub-second dashboard load times and zero cumulative layout shift (CLS) across data-heavy views.",
 			},
 		],
-		stack: ["React", "TypeScript", "Next.js", "Node.js", "TanStack Query", "Tiptap", "Stripe", "MongoDB"],
+		stack: ["React", "TypeScript", "Express.js", "Node.js", "TanStack Query", "Stripe", "MongoDB", "Tailwind CSS"],
 	},
 	{
 		name: "FOGO",
-		roles: [{ role: "Frontend Developer", period: "2023 - 2024 · Remote" }],
+		roles: [{ role: "Frontend Developer", period: "Nov 2024 - Dec 2024 · Freelance" }],
 		bullets: [
 			{
 				text: "Architected administrative dashboard UI with Next.js and shadcn/ui based on high-fidelity Figma specifications.",
@@ -54,15 +54,15 @@ const experiences: ExperienceItem[] = [
 				text: "Translated Figma design tokens into pixel-perfect, accessible, and responsive components adhering to WCAG standards.",
 			},
 		],
-		stack: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "Radix UI", "Figma"],
+		stack: ["Next.js", "TypeScript", "TanStack Query", "Axios", "Tailwind CSS", "shadcn/ui", "Figma"],
 	},
 ];
 
 export function Experience() {
 	return (
 		<section id="experience" className="section flex scroll-mt-24 flex-col gap-8">
-			<div className="flex items-center gap-2.5">
-				<Briefcase className="size-5 stroke-[2.2px] text-fg" />
+			<div className="flex items-center gap-3">
+				<Briefcase className="size-5 text-fg" strokeWidth={2} />
 				<h2 className="text-xl font-semibold tracking-tight text-fg">Experience</h2>
 			</div>
 

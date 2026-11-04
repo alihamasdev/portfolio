@@ -7,7 +7,7 @@ import { CONTACT } from "@/lib/contact";
 export function Hero() {
 	return (
 		<section id="hero" className="section relative flex flex-col gap-8 pt-4">
-			<div className="flex items-center gap-2.5">
+			<div className="flex items-center gap-3">
 				<h1 className="font-newsreader text-3xl tracking-tight text-balance text-fg italic sm:text-4xl">{CONTACT.name}</h1>
 			</div>
 

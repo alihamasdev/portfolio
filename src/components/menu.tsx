@@ -9,7 +9,10 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { CONTACT } from "@/lib/contact";
 
 function MenuStatus({ isPause }: { isPause: boolean }) {
-	const [current, setCurrent] = useState(0);
+	const [{ current, prev }, setState] = useState<{ current: number; prev: number | null }>({
+		current: 0,
+		prev: null,
+	});
 	const [isVisible, setIsVisible] = useState(true);
 
 	const statuses = [
@@ -65,34 +68,39 @@ function MenuStatus({ isPause }: { isPause: boolean }) {
 	useEffect(() => {
 		if (isPause || !isVisible) return;
 		const interval = setInterval(() => {
-			setCurrent((prev) => (prev + 1) % statuses.length);
+			setState(({ current }) => ({
+				current: (current + 1) % statuses.length,
+				prev: current,
+			}));
 		}, 4000);
 		return () => clearInterval(interval);
 	}, [isPause, isVisible, statuses.length]);
 
+	useEffect(() => {
+		if (prev === null) return;
+		const timer = setTimeout(() => {
+			setState((s) => ({ ...s, prev: null }));
+		}, 550);
+		return () => clearTimeout(timer);
+	}, [prev]);
+
 	return (
 		<div className="relative h-4 w-full overflow-hidden text-xs text-muted">
-			{statuses.map((status, index) => {
-				const isCurrent = index === current;
-				const isPrev = index === (current - 1 + statuses.length) % statuses.length;
-
-				return (
-					<div
-						key={status.id}
-						aria-hidden={!isCurrent}
-						className={cn(
-							"absolute inset-0 flex items-center gap-1.5 transition-[opacity,transform,filter] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none",
-							isCurrent
-								? "translate-y-0 opacity-100 blur-none"
-								: isPrev
-									? "pointer-events-none -translate-y-2 opacity-0 blur-[2px]"
-									: "pointer-events-none translate-y-2 opacity-0 blur-[2px]",
-						)}
-					>
-						{status.content}
-					</div>
-				);
-			})}
+			{prev !== null && (
+				<div
+					key={`prev-${prev}-${statuses[prev].id}`}
+					aria-hidden="true"
+					className="menu-status-item-exit pointer-events-none absolute inset-0 flex items-center gap-1.5"
+				>
+					{statuses[prev].content}
+				</div>
+			)}
+			<div
+				key={`curr-${current}-${statuses[current].id}`}
+				className={cn("absolute inset-0 flex items-center gap-1.5", prev !== null && "menu-status-item-enter")}
+			>
+				{statuses[current].content}
+			</div>
 		</div>
 	);
 }
@@ -144,7 +152,7 @@ export function Menu() {
 				onMouseEnter={() => setIsOpen(true)}
 				onMouseLeave={() => setIsOpen(false)}
 				className={cn(
-					"menu-intro pointer-events-auto w-full rounded-[1.6rem] bg-surface/90 ring-1 ring-border backdrop-blur-md transition-all duration-200 ease-spring motion-reduce:transition-none",
+					"menu-intro pointer-events-auto w-full overflow-hidden rounded-[1.6rem] bg-surface/90 ring-1 ring-border backdrop-blur-md transition-all duration-200 ease-spring motion-reduce:transition-none",
 					isOpen ? "max-w-sm rounded-2xl shadow-2xl dark:shadow-stone-950/80" : "max-w-xs shadow-lg shadow-black/5",
 				)}
 			>
@@ -153,19 +161,19 @@ export function Menu() {
 					type="button"
 					aria-expanded={isOpen}
 					onClick={() => setIsOpen((prev) => !prev)}
-					className="flex w-full cursor-pointer items-center gap-3 overflow-hidden p-2 text-left transition-[background-color,transform] duration-150 ease-spring active:scale-[0.99]"
+					className="flex h-13 w-full cursor-pointer items-center overflow-hidden p-1.5 text-left transition-[background-color,transform] duration-150 ease-spring active:scale-[0.99]"
 				>
 					<div className="relative size-10 shrink-0 overflow-hidden rounded-full ring-1 ring-border">
 						<Image src="/me.webp" alt={CONTACT.name} width={40} height={40} className="size-full object-cover" priority />
 					</div>
 
-					<div className="menu-status-intro flex flex-1 items-center justify-between overflow-hidden">
+					<div className="menu-status-intro flex flex-1 items-center justify-between overflow-hidden pr-1.5 pl-2.5 whitespace-nowrap">
 						<div className="flex flex-1 flex-col justify-center overflow-hidden leading-tight">
 							<span className="text-sm font-semibold tracking-tight text-fg">{CONTACT.name}</span>
 							<MenuStatus isPause={isOpen} />
 						</div>
 
-						<span className="mr-2 ml-3 hidden shrink-0 items-center rounded-md border border-border/80 px-1.5 py-0.5 text-[10px] font-medium text-muted sm:inline-flex">
+						<span className="mr-1 ml-2.5 hidden shrink-0 items-center rounded-md border border-border/80 px-1.5 py-0.5 text-[10px] font-medium text-muted sm:inline-flex">
 							⌘ + K
 						</span>
 					</div>
