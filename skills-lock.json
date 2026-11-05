@@ -1,6 +1,12 @@
 {
 	"version": 1,
 	"skills": {
+		"nextjs-seo": {
+			"source": "laguagu/claude-code-nextjs-skills",
+			"sourceType": "github",
+			"skillPath": "skills/nextjs-seo/SKILL.md",
+			"computedHash": "b400266b3cb5180e2e0f6ddbc3627b852edb659263a759fcc8ccfa576edf9f42"
+		},
 		"transitions-dev": {
 			"source": "Jakubantalik/transitions.dev",
 			"sourceType": "github",

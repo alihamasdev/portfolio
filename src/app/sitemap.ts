@@ -1,14 +1,12 @@
 import type { MetadataRoute } from "next";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-	const baseUrl = "https://alihamas.pk";
+import { CONTACT } from "@/lib/contact";
 
+export default function sitemap(): MetadataRoute.Sitemap {
 	return [
 		{
-			url: baseUrl,
-			lastModified: new Date(),
-			changeFrequency: "weekly",
-			priority: 1,
+			url: CONTACT.siteUrl,
+			lastModified: new Date("2026-11-05"),
 		},
 	];
 }

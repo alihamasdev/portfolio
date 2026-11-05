@@ -1,0 +1,38 @@
+# Version control
+.git
+.gitignore
+
+# Dependencies (installed on Vercel)
+node_modules
+
+# Local build outputs and caches
+.next
+out
+build
+*.tsbuildinfo
+
+# Vercel metadata
+.vercel
+
+# Editor & IDE settings
+.vscode
+.idea
+
+# Local tooling & agents
+.agents
+skills-lock.json
+scripts
+.oxlintrc.json
+.oxfmtrc.json
+
+# Documentation
+README.md
+
+# Environment & credentials
+.env*
+!.env.example
+*.pem
+
+# System files & logs
+.DS_Store
+*.log
