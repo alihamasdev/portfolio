@@ -1,10 +1,10 @@
 <div align="center">
 
-# Ali Hamas — Portfolio (v2)
+# Ali Hamas — Portfolio
 
 Personal portfolio and design engineering showcase built with Next.js App Router, React 19, TypeScript, and Tailwind CSS v4.
 
-[**Live Demo (alihamas.pk)**](https://alihamas.pk) · [**Report Issue**](https://github.com/alihamasdev/portfolio/issues)
+[**Live (alihamas.pk)**](https://alihamas.pk) · [**Report Issue**](https://github.com/alihamasdev/portfolio/issues)
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.4-black?style=flat&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.3-blue?style=flat&logo=react)](https://react.dev/)
@@ -42,7 +42,6 @@ A fast, accessible, and minimal personal portfolio designed with an editorial ae
 | **Language**                  | TypeScript                               |
 | **Styling**                   | Tailwind CSS v4 (`@tailwindcss/postcss`) |
 | **Icons**                     | Lucide React + custom SVG icons          |
-| **Theme**                     | `next-themes`                            |
 | **Tooling**                   | Oxlint (linter) & Oxfmt (formatter)      |
 | **Runtime & Package Manager** | Bun                                      |
 | **Deployment**                | Vercel                                   |
