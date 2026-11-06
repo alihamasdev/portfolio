@@ -103,16 +103,16 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to view the 
 
 ## Available Scripts
 
-| Command                  | Description                                                              |
-| :----------------------- | :----------------------------------------------------------------------- |
-| `bun dev`                | Starts the local dev server with Turbopack                               |
-| `bun run build`          | Builds the production bundle                                             |
-| `bun run start`          | Runs the production build locally                                        |
-| `bun run check`          | Runs Oxlint linter and Oxfmt formatter                                   |
-| `bun run check-types`    | Generates route types and runs TypeScript type checking (`tsc --noEmit`) |
-| `bun run og`             | Recomputes the 3D isometric tilt-shift OG images across all target paths |
-| `bun run deploy:preview` | Deploys a preview environment via Vercel CLI                             |
-| `bun run deploy:prod`    | Deploys directly to the production environment via Vercel CLI            |
+| Command               | Description                                                              |
+| :-------------------- | :----------------------------------------------------------------------- |
+| `bun dev`             | Starts the local dev server with Turbopack                               |
+| `bun run build`       | Builds the production bundle                                             |
+| `bun run start`       | Runs the production build locally                                        |
+| `bun run check`       | Runs Oxlint linter and Oxfmt formatter                                   |
+| `bun run check-types` | Generates route types and runs TypeScript type checking (`tsc --noEmit`) |
+| `bun run og`          | Recomputes the 3D isometric tilt-shift OG images across all target paths |
+| `bun run deploy:prev` | Deploys a preview environment via Vercel CLI                             |
+| `bun run deploy:prod` | Deploys directly to the production environment via Vercel CLI            |
 
 > [!TIP]
 > This project uses [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) and [Oxfmt](https://oxc.rs/) for linting and formatting. Run `bun run check` before committing changes to ensure consistent code style.
